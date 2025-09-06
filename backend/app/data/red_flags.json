@@ -1,0 +1,138 @@
+{
+  "red_flags": [
+    {
+      "symptom": "chest_pain",
+      "conditions": [
+        {
+          "criteria": [
+            "pain_radiating_left_arm",
+            "sweating",
+            "nausea",
+            "shortness_of_breath"
+          ],
+          "threshold": 2,
+          "message": "Chest pain with associated symptoms like sweating, nausea, or pain radiating to the left arm may indicate a heart attack. Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "shortness_of_breath",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_onset",
+            "chest_pain",
+            "blue_lips",
+            "rapid_heartbeat"
+          ],
+          "threshold": 1,
+          "message": "Sudden shortness of breath with chest pain or blue lips can indicate a life-threatening emergency such as a pulmonary embolism. Call emergency services immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "headache",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_onset",
+            "stiff_neck",
+            "confusion",
+            "loss_of_consciousness"
+          ],
+          "threshold": 1,
+          "message": "A sudden, severe headache with confusion, stiff neck, or loss of consciousness may suggest a brain bleed or meningitis. Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "abdominal_pain",
+      "conditions": [
+        {
+          "criteria": [
+            "pain_right_lower_quadrant",
+            "persistent_vomiting",
+            "bloody_stool",
+            "fever"
+          ],
+          "threshold": 2,
+          "message": "Severe abdominal pain with fever, persistent vomiting, or blood in the stool could indicate appendicitis or other serious conditions. Get urgent medical evaluation."
+        }
+      ]
+    },
+    {
+      "symptom": "rash",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_onset",
+            "swelling",
+            "difficulty_breathing"
+          ],
+          "threshold": 1,
+          "message": "A rash with sudden swelling or breathing difficulty may indicate a severe allergic reaction (anaphylaxis). Use an epinephrine auto-injector if available and call emergency services immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "dizziness",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_weakness",
+            "slurred_speech",
+            "vision_changes",
+            "loss_of_balance"
+          ],
+          "threshold": 1,
+          "message": "Dizziness with sudden weakness, speech problems, or vision changes may be signs of a stroke. Call emergency services immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "fever",
+      "conditions": [
+        {
+          "criteria": [
+            "stiff_neck",
+            "confusion",
+            "seizures",
+            "rash"
+          ],
+          "threshold": 1,
+          "message": "Fever with stiff neck, confusion, or seizures may indicate meningitis or a severe systemic infection. Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "pregnancy_related",
+      "conditions": [
+        {
+          "criteria": [
+            "severe_abdominal_pain",
+            "heavy_bleeding",
+            "dizziness",
+            "loss_of_consciousness"
+          ],
+          "threshold": 1,
+          "message": "Severe abdominal pain or heavy bleeding during pregnancy could indicate miscarriage or ectopic pregnancy. Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "mental_status_changes",
+      "conditions": [
+        {
+          "criteria": [
+            "confusion",
+            "loss_of_consciousness",
+            "seizures",
+            "agitation"
+          ],
+          "threshold": 1,
+          "message": "Sudden confusion, seizures, or loss of consciousness may indicate a serious neurological or systemic emergency. Call emergency services immediately."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "symptom_groups": [
+    {
+      "group": "Fever + Cough",
+      "causes": [
+        {
+          "id": "J06.9",
+          "name": "Viral Upper Respiratory Infection",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "fever": 0.7,
+            "cough": 0.8,
+            "sore_throat": 0.6,
+            "runny_nose": 0.7
+          },
+          "tests": ["COVID-19 PCR", "Influenza Rapid Test"],
+          "triage_level": "GP/teleconsult"
+        },
+        {
+          "id": "J10",
+          "name": "Influenza",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "fever": 0.9,
+            "cough": 0.8,
+            "body_aches": 0.7,
+            "fatigue": 0.6
+          },
+          "tests": ["Influenza Rapid Test"],
+          "triage_level": "GP/urgent care if severe"
+        },
+        {
+          "id": "J18.9",
+          "name": "Pneumonia",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "fever": 0.9,
+            "cough": 0.9,
+            "shortness_of_breath": 0.7,
+            "chest_pain": 0.5
+          },
+          "tests": ["Chest X-ray", "CBC"],
+          "triage_level": "Urgent care / emergency if severe"
+        }
+      ]
+    },
+    {
+      "group": "Chest Pain",
+      "causes": [
+        {
+          "id": "I20",
+          "name": "Angina (Stable)",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "chest_pain": 0.9,
+            "pain_worse_on_exertion": 0.8,
+            "shortness_of_breath": 0.5
+          },
+          "tests": ["ECG", "Troponin", "Echocardiogram"],
+          "triage_level": "Urgent care"
+        },
+        {
+          "id": "I21",
+          "name": "Myocardial Infarction (Heart Attack)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "chest_pain": 0.95,
+            "pain_radiating_left_arm": 0.8,
+            "sweating": 0.7,
+            "nausea": 0.5
+          },
+          "tests": ["ECG", "Troponin", "Chest X-ray"],
+          "triage_level": "Emergency"
+        },
+        {
+          "id": "R07.2",
+          "name": "Musculoskeletal Chest Pain",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "chest_pain": 0.8,
+            "pain_worse_with_movement": 0.7,
+            "tenderness_to_touch": 0.6
+          },
+          "tests": ["None usually required"],
+          "triage_level": "Self-care / GP"
+        }
+      ]
+    },
+    {
+      "group": "Abdominal Pain",
+      "causes": [
+        {
+          "id": "K29",
+          "name": "Gastritis",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.8,
+            "nausea": 0.6,
+            "bloating": 0.5
+          },
+          "tests": ["H. pylori test", "Abdominal Ultrasound"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "K35",
+          "name": "Appendicitis",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.9,
+            "pain_right_lower_quadrant": 0.85,
+            "fever": 0.7,
+            "vomiting": 0.6
+          },
+          "tests": ["CBC", "Abdominal Ultrasound"],
+          "triage_level": "Urgent care"
+        },
+        {
+          "id": "K80",
+          "name": "Gallstones",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.85,
+            "pain_after_fatty_meals": 0.75,
+            "nausea": 0.6
+          },
+          "tests": ["Abdominal Ultrasound", "Liver Function Tests"],
+          "triage_level": "GP / urgent care"
+        }
+      ]
+    },
+    {
+      "group": "Headache",
+      "causes": [
+        {
+          "id": "G43",
+          "name": "Migraine",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "headache": 0.9,
+            "nausea": 0.7,
+            "light_sensitivity": 0.6
+          },
+          "tests": ["Usually none; MRI if atypical"],
+          "triage_level": "GP / neurologist"
+        },
+        {
+          "id": "G44",
+          "name": "Tension Headache",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "headache": 0.8,
+            "stress": 0.7,
+            "muscle_tightness": 0.6
+          },
+          "tests": ["None usually required"],
+          "triage_level": "Self-care / GP"
+        },
+        {
+          "id": "I60",
+          "name": "Subarachnoid Hemorrhage",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "headache": 0.9,
+            "sudden_onset": 0.95,
+            "stiff_neck": 0.7
+          },
+          "tests": ["CT Scan", "Lumbar Puncture"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Dizziness",
+      "causes": [
+        {
+          "id": "H81",
+          "name": "Vertigo (BPPV)",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "dizziness": 0.9,
+            "spinning_sensation": 0.85,
+            "triggered_by_head_movement": 0.8
+          },
+          "tests": ["Dix-Hallpike maneuver"],
+          "triage_level": "GP / ENT specialist"
+        },
+        {
+          "id": "I95",
+          "name": "Orthostatic Hypotension",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "dizziness": 0.85,
+            "standing_up_trigger": 0.8,
+            "low_blood_pressure": 0.75
+          },
+          "tests": ["Blood Pressure Measurement"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "I63",
+          "name": "Stroke",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "dizziness": 0.6,
+            "sudden_weakness": 0.8,
+            "slurred_speech": 0.8,
+            "vision_changes": 0.7
+          },
+          "tests": ["CT Scan", "MRI"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Fatigue",
+      "causes": [
+        {
+          "id": "F32",
+          "name": "Depression",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "fatigue": 0.8,
+            "low_mood": 0.85,
+            "sleep_disturbance": 0.7
+          },
+          "tests": ["Mental health screening"],
+          "triage_level": "GP / mental health professional"
+        },
+        {
+          "id": "E03",
+          "name": "Hypothyroidism",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "fatigue": 0.85,
+            "weight_gain": 0.75,
+            "cold_intolerance": 0.7
+          },
+          "tests": ["TSH, T3, T4"],
+          "triage_level": "GP / endocrinologist"
+        },
+        {
+          "id": "D50",
+          "name": "Iron Deficiency Anemia",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "fatigue": 0.8,
+            "pale_skin": 0.75,
+            "dizziness": 0.65
+          },
+          "tests": ["CBC", "Iron Studies"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Rash",
+      "causes": [
+        {
+          "id": "L30",
+          "name": "Eczema",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "rash": 0.85,
+            "itching": 0.8,
+            "dry_skin": 0.7
+          },
+          "tests": ["Skin examination"],
+          "triage_level": "GP / dermatologist"
+        },
+        {
+          "id": "B09",
+          "name": "Viral Exanthem",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "rash": 0.8,
+            "fever": 0.7,
+            "cough": 0.6
+          },
+          "tests": ["Clinical evaluation"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "L50",
+          "name": "Hives (Allergic Reaction)",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "rash": 0.9,
+            "sudden_onset": 0.8,
+            "swelling": 0.7
+          },
+          "tests": ["Allergy testing if recurrent"],
+          "triage_level": "Urgent care if breathing affected"
+        }
+      ]
+    },
+    {
+      "group": "Joint Pain",
+      "causes": [
+        {
+          "id": "M17",
+          "name": "Osteoarthritis",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "joint_pain": 0.9,
+            "stiffness": 0.8,
+            "pain_worse_with_activity": 0.7
+          },
+          "tests": ["X-ray of affected joint"],
+          "triage_level": "GP / orthopedist"
+        },
+        {
+          "id": "M06",
+          "name": "Rheumatoid Arthritis",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "joint_pain": 0.85,
+            "morning_stiffness": 0.8,
+            "symmetrical_joint_involvement": 0.7
+          },
+          "tests": ["Rheumatoid Factor", "Anti-CCP", "ESR/CRP"],
+          "triage_level": "GP / rheumatologist"
+        },
+        {
+          "id": "M10",
+          "name": "Gout",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "joint_pain": 0.9,
+            "sudden_onset": 0.8,
+            "redness": 0.7
+          },
+          "tests": ["Serum Uric Acid", "Joint Fluid Analysis"],
+          "triage_level": "GP / urgent care"
+        }
+      ]
+    }
+  ]
+}
