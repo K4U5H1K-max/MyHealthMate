@@ -2,7 +2,7 @@
 Main FastAPI app entrypoint for MyHealthMate
 """
 from fastapi import FastAPI
-from .routers import symptoms
+from .routers import symptoms, summarize
 
 app = FastAPI(
 	title="MyHealthMate API",
@@ -11,3 +11,4 @@ app = FastAPI(
 )
 
 app.include_router(symptoms.router)
+app.include_router(summarize.router)
