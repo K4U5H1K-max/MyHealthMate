@@ -29,7 +29,7 @@ async def extract_text_from_pdf(pdf_file: UploadFile) -> str:
     os.remove(tmp_path)
     return text
 
-router = APIRouter()
+router = APIRouter() 
 
 class SummarizeResponse(BaseModel):
     abstract: str
@@ -42,8 +42,8 @@ async def summarize(
     text: Optional[str] = Form(None),
     pdf: Optional[UploadFile] = File(None)
 ):
-    # Treat empty string as no file (Swagger UI quirk)
-    if pdf is not None and getattr(pdf, "filename", None) == "":
+    # Treat empty string, None, or non-file as no file (Swagger UI quirk)
+    if not pdf or getattr(pdf, "filename", None) in (None, ""):
         pdf = None
     if not text and not pdf:
         raise HTTPException(status_code=400, detail="Provide either text or a PDF file.")
@@ -53,5 +53,5 @@ async def summarize(
             raise HTTPException(status_code=400, detail="No text could be extracted from PDF.")
         text = extracted_text
     # Call GPT for summary
-    result = await gpt_summarize(text)
+    result = gpt_summarize(text)
     return SummarizeResponse(**result)
