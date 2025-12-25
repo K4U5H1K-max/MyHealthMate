@@ -12,6 +12,25 @@
           ],
           "threshold": 2,
           "message": "Chest pain with associated symptoms like sweating, nausea, or pain radiating to the left arm may indicate a heart attack. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "crushing_sensation",
+            "jaw_pain",
+            "back_pain",
+            "extreme_fatigue"
+          ],
+          "threshold": 2,
+          "message": "Crushing chest pain with jaw or back pain could be a heart attack. This is a medical emergency - call 911 immediately."
+        },
+        {
+          "criteria": [
+            "sudden_sharp_pain",
+            "difficulty_breathing",
+            "coughing_blood"
+          ],
+          "threshold": 2,
+          "message": "Sudden sharp chest pain with difficulty breathing may indicate a collapsed lung or pulmonary embolism. Seek emergency care immediately."
         }
       ]
     },
@@ -27,6 +46,25 @@
           ],
           "threshold": 1,
           "message": "Sudden shortness of breath with chest pain or blue lips can indicate a life-threatening emergency such as a pulmonary embolism. Call emergency services immediately."
+        },
+        {
+          "criteria": [
+            "wheezing",
+            "difficulty_speaking",
+            "stridor",
+            "throat_tightness"
+          ],
+          "threshold": 2,
+          "message": "Severe breathing difficulty with wheezing or throat tightness may indicate anaphylaxis or severe asthma attack. Use emergency inhaler/epinephrine and call 911."
+        },
+        {
+          "criteria": [
+            "swelling_face",
+            "swelling_tongue",
+            "hives"
+          ],
+          "threshold": 1,
+          "message": "Breathing difficulty with facial or tongue swelling indicates severe allergic reaction. Use epinephrine auto-injector if available and call 911 immediately."
         }
       ]
     },
@@ -42,6 +80,35 @@
           ],
           "threshold": 1,
           "message": "A sudden, severe headache with confusion, stiff neck, or loss of consciousness may suggest a brain bleed or meningitis. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "worst_headache_ever",
+            "thunderclap_onset",
+            "vision_changes"
+          ],
+          "threshold": 1,
+          "message": "The worst headache of your life with sudden onset (thunderclap headache) may indicate brain hemorrhage. Call 911 immediately."
+        },
+        {
+          "criteria": [
+            "fever",
+            "sensitivity_to_light",
+            "neck_stiffness",
+            "vomiting"
+          ],
+          "threshold": 2,
+          "message": "Severe headache with fever, neck stiffness, and light sensitivity may indicate meningitis. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "after_head_injury",
+            "confusion",
+            "vomiting",
+            "unequal_pupils"
+          ],
+          "threshold": 2,
+          "message": "Headache after head injury with confusion or vomiting may indicate serious brain injury. Go to emergency room immediately."
         }
       ]
     },
@@ -57,6 +124,123 @@
           ],
           "threshold": 2,
           "message": "Severe abdominal pain with fever, persistent vomiting, or blood in the stool could indicate appendicitis or other serious conditions. Get urgent medical evaluation."
+        },
+        {
+          "criteria": [
+            "rigid_abdomen",
+            "severe_tenderness",
+            "unable_to_pass_gas",
+            "distended_abdomen"
+          ],
+          "threshold": 2,
+          "message": "Severe abdominal pain with rigid, distended abdomen may indicate bowel obstruction or perforation. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "pain_after_eating_fatty_food",
+            "right_upper_quadrant_pain",
+            "jaundice",
+            "fever"
+          ],
+          "threshold": 3,
+          "message": "Severe right upper abdominal pain with jaundice and fever may indicate gallbladder infection or bile duct obstruction. Seek urgent medical care."
+        },
+        {
+          "criteria": [
+            "severe_back_pain",
+            "blood_in_urine",
+            "unable_to_find_comfortable_position"
+          ],
+          "threshold": 2,
+          "message": "Severe abdominal/flank pain with blood in urine may indicate kidney stones or kidney infection. Seek urgent medical evaluation."
+        }
+      ]
+    },
+    {
+      "symptom": "neurological_symptoms",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_weakness_one_side",
+            "facial_drooping",
+            "slurred_speech",
+            "vision_loss"
+          ],
+          "threshold": 1,
+          "message": "Sudden weakness, facial drooping, or slurred speech are signs of stroke. Time is critical - call 911 immediately. Note the time symptoms started."
+        },
+        {
+          "criteria": [
+            "seizure",
+            "loss_of_consciousness",
+            "confusion_after_seizure",
+            "first_seizure_ever"
+          ],
+          "threshold": 1,
+          "message": "First-time seizure or prolonged seizure requires immediate emergency evaluation. Call 911."
+        },
+        {
+          "criteria": [
+            "severe_confusion",
+            "hallucinations",
+            "unable_to_recognize_people",
+            "agitation"
+          ],
+          "threshold": 2,
+          "message": "Sudden severe confusion or altered mental state may indicate serious medical emergency (infection, stroke, metabolic crisis). Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "double_vision",
+            "drooping_eyelid",
+            "difficulty_swallowing",
+            "muscle_weakness"
+          ],
+          "threshold": 2,
+          "message": "Sudden vision changes with muscle weakness may indicate serious neurological condition. Seek immediate medical evaluation."
+        }
+      ]
+    },
+    {
+      "symptom": "bleeding",
+      "conditions": [
+        {
+          "criteria": [
+            "uncontrolled_bleeding",
+            "bleeding_not_stopping",
+            "large_blood_loss"
+          ],
+          "threshold": 1,
+          "message": "Uncontrolled bleeding or severe blood loss is a medical emergency. Apply direct pressure and call 911 immediately."
+        },
+        {
+          "criteria": [
+            "vomiting_blood",
+            "coffee_ground_vomit",
+            "dizziness",
+            "pale_skin"
+          ],
+          "threshold": 1,
+          "message": "Vomiting blood or coffee-ground material indicates serious internal bleeding. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "black_tarry_stool",
+            "bright_red_blood_in_stool",
+            "dizziness",
+            "rapid_heartbeat"
+          ],
+          "threshold": 2,
+          "message": "Black tarry stools or large amounts of blood in stool with dizziness indicates serious gastrointestinal bleeding. Go to emergency room immediately."
+        },
+        {
+          "criteria": [
+            "coughing_up_blood",
+            "large_amount",
+            "difficulty_breathing"
+          ],
+          "threshold": 1,
+          "message": "Coughing up blood, especially in large amounts, requires immediate emergency evaluation. Call 911."
         }
       ]
     },
@@ -71,6 +255,26 @@
           ],
           "threshold": 1,
           "message": "A rash with sudden swelling or breathing difficulty may indicate a severe allergic reaction (anaphylaxis). Use an epinephrine auto-injector if available and call emergency services immediately."
+        },
+        {
+          "criteria": [
+            "purple_spots",
+            "fever",
+            "stiff_neck",
+            "not_blanching"
+          ],
+          "threshold": 2,
+          "message": "Purple non-blanching rash with fever and stiff neck may indicate meningococcal meningitis. This is a life-threatening emergency - call 911 immediately."
+        },
+        {
+          "criteria": [
+            "blistering",
+            "peeling_skin",
+            "fever",
+            "mouth_sores"
+          ],
+          "threshold": 2,
+          "message": "Severe blistering rash with peeling skin and fever may indicate Stevens-Johnson syndrome or toxic epidermal necrolysis. Seek emergency care immediately."
         }
       ]
     },
@@ -86,6 +290,25 @@
           ],
           "threshold": 1,
           "message": "Dizziness with sudden weakness, speech problems, or vision changes may be signs of a stroke. Call emergency services immediately."
+        },
+        {
+          "criteria": [
+            "fainting",
+            "chest_pain",
+            "irregular_heartbeat",
+            "shortness_of_breath"
+          ],
+          "threshold": 2,
+          "message": "Dizziness with fainting and chest pain may indicate heart rhythm problems. Seek emergency evaluation immediately."
+        },
+        {
+          "criteria": [
+            "severe_headache",
+            "neck_stiffness",
+            "confusion"
+          ],
+          "threshold": 2,
+          "message": "Dizziness with severe headache and confusion may indicate serious neurological emergency. Call 911."
         }
       ]
     },
@@ -101,6 +324,35 @@
           ],
           "threshold": 1,
           "message": "Fever with stiff neck, confusion, or seizures may indicate meningitis or a severe systemic infection. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "temperature_above_103",
+            "unresponsive_to_medication",
+            "difficulty_breathing",
+            "chest_pain"
+          ],
+          "threshold": 2,
+          "message": "Very high fever (>103°F/39.4°C) with breathing difficulty or chest pain requires emergency evaluation."
+        },
+        {
+          "criteria": [
+            "recent_travel",
+            "severe_body_aches",
+            "bleeding",
+            "jaundice"
+          ],
+          "threshold": 2,
+          "message": "Fever after travel to tropical areas with severe symptoms may indicate serious infection like malaria or dengue. Seek immediate medical care."
+        },
+        {
+          "criteria": [
+            "immunocompromised",
+            "cancer_treatment",
+            "organ_transplant"
+          ],
+          "threshold": 1,
+          "message": "Any fever in immunocompromised patients requires urgent medical evaluation. Contact your oncologist or go to emergency room."
         }
       ]
     },
@@ -116,6 +368,43 @@
           ],
           "threshold": 1,
           "message": "Severe abdominal pain or heavy bleeding during pregnancy could indicate miscarriage or ectopic pregnancy. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "severe_headache",
+            "vision_changes",
+            "upper_abdominal_pain",
+            "swelling_hands_face"
+          ],
+          "threshold": 2,
+          "message": "Severe headache with vision changes and swelling in pregnancy may indicate preeclampsia/eclampsia. This is life-threatening - go to emergency room immediately."
+        },
+        {
+          "criteria": [
+            "decreased_fetal_movement",
+            "no_movement_for_hours",
+            "after_20_weeks"
+          ],
+          "threshold": 1,
+          "message": "Decreased or absent fetal movement requires immediate evaluation. Go to labor and delivery or emergency room."
+        },
+        {
+          "criteria": [
+            "gush_of_fluid",
+            "leaking_fluid",
+            "before_37_weeks"
+          ],
+          "threshold": 1,
+          "message": "Water breaking before 37 weeks (preterm premature rupture of membranes) requires immediate obstetric evaluation."
+        },
+        {
+          "criteria": [
+            "seizures",
+            "severe_headache",
+            "high_blood_pressure"
+          ],
+          "threshold": 1,
+          "message": "Seizures during pregnancy (eclampsia) is a life-threatening emergency. Call 911 immediately."
         }
       ]
     },
@@ -131,6 +420,381 @@
           ],
           "threshold": 1,
           "message": "Sudden confusion, seizures, or loss of consciousness may indicate a serious neurological or systemic emergency. Call emergency services immediately."
+        },
+        {
+          "criteria": [
+            "hallucinations",
+            "paranoia",
+            "suicidal_thoughts",
+            "violence"
+          ],
+          "threshold": 1,
+          "message": "Suicidal thoughts or intent to harm self or others requires immediate psychiatric emergency evaluation. Call 911 or crisis hotline."
+        },
+        {
+          "criteria": [
+            "severe_depression",
+            "suicidal_plan",
+            "giving_away_belongings"
+          ],
+          "threshold": 1,
+          "message": "Active suicidal ideation with plan is a psychiatric emergency. Call National Suicide Prevention Lifeline (988) or 911 immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "pediatric_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "infant_under_3_months",
+            "fever_above_100_4",
+            "lethargy"
+          ],
+          "threshold": 1,
+          "message": "Fever in infant under 3 months old requires immediate emergency evaluation. Go to emergency room or call pediatrician immediately."
+        },
+        {
+          "criteria": [
+            "difficulty_breathing",
+            "blue_lips",
+            "retractions",
+            "grunting"
+          ],
+          "threshold": 1,
+          "message": "Severe breathing difficulty in child with blue lips or retractions is a medical emergency. Call 911 immediately."
+        },
+        {
+          "criteria": [
+            "persistent_vomiting",
+            "no_wet_diapers_8_hours",
+            "sunken_fontanelle",
+            "dry_mouth"
+          ],
+          "threshold": 2,
+          "message": "Signs of severe dehydration in infant/child (no urine, sunken soft spot) require urgent medical evaluation."
+        },
+        {
+          "criteria": [
+            "severe_allergic_reaction",
+            "swelling_face",
+            "difficulty_breathing"
+          ],
+          "threshold": 1,
+          "message": "Allergic reaction with breathing difficulty in child requires immediate epinephrine and emergency care. Call 911."
+        },
+        {
+          "criteria": [
+            "head_injury",
+            "loss_of_consciousness",
+            "vomiting",
+            "confusion"
+          ],
+          "threshold": 2,
+          "message": "Head injury in child with loss of consciousness or persistent vomiting requires emergency evaluation."
+        },
+        {
+          "criteria": [
+            "ingestion_of_poison",
+            "medication_overdose",
+            "chemical_exposure"
+          ],
+          "threshold": 1,
+          "message": "Poison ingestion or medication overdose in child requires immediate action. Call Poison Control (1-800-222-1222) and 911."
+        }
+      ]
+    },
+    {
+      "symptom": "trauma_injuries",
+      "conditions": [
+        {
+          "criteria": [
+            "severe_bleeding",
+            "deep_wound",
+            "spurting_blood"
+          ],
+          "threshold": 1,
+          "message": "Severe bleeding with spurting blood indicates arterial bleeding. Apply direct pressure and call 911 immediately."
+        },
+        {
+          "criteria": [
+            "head_trauma",
+            "loss_of_consciousness",
+            "confusion",
+            "vomiting"
+          ],
+          "threshold": 1,
+          "message": "Head injury with loss of consciousness requires immediate emergency evaluation for possible traumatic brain injury. Call 911."
+        },
+        {
+          "criteria": [
+            "suspected_spinal_injury",
+            "neck_pain",
+            "inability_to_move",
+            "numbness"
+          ],
+          "threshold": 1,
+          "message": "Suspected spinal injury - DO NOT MOVE the person. Call 911 and keep them still until emergency services arrive."
+        },
+        {
+          "criteria": [
+            "bone_protruding",
+            "severe_deformity",
+            "unable_to_move_limb"
+          ],
+          "threshold": 1,
+          "message": "Open fracture with bone protruding through skin is a medical emergency. Call 911 and do not attempt to move the limb."
+        },
+        {
+          "criteria": [
+            "severe_burn",
+            "large_area",
+            "face_or_airway",
+            "electrical_burn"
+          ],
+          "threshold": 1,
+          "message": "Severe burns, especially on face/airway or from electricity, require immediate emergency care. Call 911."
+        },
+        {
+          "criteria": [
+            "penetrating_injury",
+            "object_still_embedded",
+            "chest_or_abdomen"
+          ],
+          "threshold": 1,
+          "message": "Penetrating injury to chest or abdomen - DO NOT remove embedded object. Call 911 immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "eye_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "sudden_vision_loss",
+            "curtain_over_vision",
+            "flashes_of_light"
+          ],
+          "threshold": 1,
+          "message": "Sudden vision loss or curtain over vision may indicate retinal detachment. Seek emergency ophthalmology care immediately."
+        },
+        {
+          "criteria": [
+            "chemical_in_eye",
+            "burning",
+            "inability_to_open"
+          ],
+          "threshold": 1,
+          "message": "Chemical exposure to eye requires immediate flushing with water for 15 minutes, then emergency care. Call 911 while flushing."
+        },
+        {
+          "criteria": [
+            "severe_eye_pain",
+            "red_eye",
+            "halos_around_lights",
+            "nausea"
+          ],
+          "threshold": 2,
+          "message": "Severe eye pain with halos around lights may indicate acute angle-closure glaucoma. Seek emergency ophthalmology care immediately to prevent permanent vision loss."
+        },
+        {
+          "criteria": [
+            "eye_injury",
+            "penetrating_object",
+            "blood_in_eye"
+          ],
+          "threshold": 1,
+          "message": "Penetrating eye injury - do NOT remove object or apply pressure. Cover loosely and go to emergency room immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "diabetic_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "very_high_blood_sugar",
+            "confusion",
+            "fruity_breath",
+            "rapid_breathing"
+          ],
+          "threshold": 2,
+          "message": "Very high blood sugar with confusion and rapid breathing may indicate diabetic ketoacidosis (DKA). This is life-threatening - go to emergency room immediately."
+        },
+        {
+          "criteria": [
+            "low_blood_sugar",
+            "confusion",
+            "sweating",
+            "loss_of_consciousness"
+          ],
+          "threshold": 2,
+          "message": "Severe low blood sugar (hypoglycemia) with confusion or unconsciousness requires immediate treatment. Give glucose if conscious, call 911 if unconscious."
+        }
+      ]
+    },
+    {
+      "symptom": "respiratory_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "choking",
+            "unable_to_speak",
+            "clutching_throat",
+            "blue_color"
+          ],
+          "threshold": 1,
+          "message": "Choking with inability to speak or breathe requires immediate Heimlich maneuver and call 911."
+        },
+        {
+          "criteria": [
+            "severe_asthma_attack",
+            "unable_to_speak_full_sentences",
+            "blue_lips",
+            "exhaustion"
+          ],
+          "threshold": 2,
+          "message": "Severe asthma attack not responding to inhaler or with blue lips requires emergency care. Call 911 and continue using rescue inhaler."
+        },
+        {
+          "criteria": [
+            "pneumothorax_symptoms",
+            "sudden_chest_pain",
+            "extreme_shortness_of_breath",
+            "one_sided"
+          ],
+          "threshold": 2,
+          "message": "Sudden severe chest pain with extreme shortness of breath may indicate collapsed lung (pneumothorax). Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "cardiac_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "cardiac_arrest",
+            "unresponsive",
+            "not_breathing",
+            "no_pulse"
+          ],
+          "threshold": 1,
+          "message": "Cardiac arrest - person unresponsive and not breathing. Call 911 immediately and start CPR. Use AED if available."
+        },
+        {
+          "criteria": [
+            "severe_irregular_heartbeat",
+            "very_fast_heart_rate",
+            "chest_pain",
+            "fainting"
+          ],
+          "threshold": 2,
+          "message": "Severe heart palpitations with chest pain or fainting may indicate dangerous arrhythmia. Seek emergency care immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "severe_allergic_reactions",
+      "conditions": [
+        {
+          "criteria": [
+            "anaphylaxis",
+            "difficulty_breathing",
+            "swelling_throat",
+            "rapid_pulse",
+            "dizziness"
+          ],
+          "threshold": 2,
+          "message": "Anaphylaxis is a life-threatening allergic reaction. Use epinephrine auto-injector immediately and call 911. Do not wait to see if symptoms improve."
+        },
+        {
+          "criteria": [
+            "insect_sting",
+            "swelling_beyond_sting_site",
+            "difficulty_breathing",
+            "dizziness"
+          ],
+          "threshold": 2,
+          "message": "Severe reaction to insect sting with breathing difficulty or widespread swelling requires emergency care and epinephrine."
+        }
+      ]
+    },
+    {
+      "symptom": "kidney_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "no_urine_output",
+            "severe_swelling",
+            "confusion",
+            "chest_pain"
+          ],
+          "threshold": 2,
+          "message": "Absence of urine output with swelling and confusion may indicate acute kidney failure. Seek emergency care immediately."
+        },
+        {
+          "criteria": [
+            "severe_flank_pain",
+            "blood_in_urine",
+            "fever",
+            "vomiting"
+          ],
+          "threshold": 2,
+          "message": "Severe flank pain with fever and blood in urine may indicate kidney infection or obstruction. Seek urgent medical care."
+        }
+      ]
+    },
+    {
+      "symptom": "metabolic_emergencies",
+      "conditions": [
+        {
+          "criteria": [
+            "severe_dehydration",
+            "extreme_thirst",
+            "no_urine",
+            "confusion",
+            "rapid_heartbeat"
+          ],
+          "threshold": 2,
+          "message": "Severe dehydration with confusion and rapid heartbeat requires emergency IV fluids. Go to emergency room immediately."
+        },
+        {
+          "criteria": [
+            "thyroid_storm",
+            "very_rapid_heartbeat",
+            "high_fever",
+            "agitation",
+            "confusion"
+          ],
+          "threshold": 3,
+          "message": "Thyroid storm (severe hyperthyroidism) with rapid heart rate, fever, and confusion is life-threatening. Call 911 immediately."
+        }
+      ]
+    },
+    {
+      "symptom": "infectious_disease_warnings",
+      "conditions": [
+        {
+          "criteria": [
+            "sepsis_symptoms",
+            "high_fever",
+            "confusion",
+            "rapid_breathing",
+            "low_blood_pressure"
+          ],
+          "threshold": 2,
+          "message": "Signs of sepsis (severe infection) including fever, confusion, and rapid breathing are life-threatening. Go to emergency room immediately."
+        },
+        {
+          "criteria": [
+            "necrotizing_fasciitis",
+            "rapidly_spreading_redness",
+            "severe_pain",
+            "fever",
+            "purple_discoloration"
+          ],
+          "threshold": 2,
+          "message": "Rapidly spreading skin infection with severe pain may indicate necrotizing fasciitis (flesh-eating bacteria). This is a surgical emergency - call 911."
         }
       ]
     }

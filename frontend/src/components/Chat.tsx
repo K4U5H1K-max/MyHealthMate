@@ -66,6 +66,7 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [sessionId, setSessionId] = useState<string>("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -85,6 +86,7 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
         },
         body: JSON.stringify({
           text: symptomsText,
+          session_id: sessionId || undefined,
         }),
       });
 
@@ -94,6 +96,11 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
       }
 
       const data = await response.json();
+      
+      // Store session ID if returned
+      if (data.session_id) {
+        setSessionId(data.session_id);
+      }
       
       let content = "Based on your description, here's my analysis:\n\n";
       
@@ -160,6 +167,11 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
       } else if (text) {
         formData.append("text", text);
       }
+      
+      // Add session ID if available
+      if (sessionId) {
+        formData.append("session_id", sessionId);
+      }
 
       const response = await fetch(`${API_BASE_URL}/summarize`, {
         method: "POST",
@@ -171,6 +183,11 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
       }
 
       const data = await response.json();
+      
+      // Store session ID if returned
+      if (data.session_id) {
+        setSessionId(data.session_id);
+      }
       
       let content = "📄 **Report Summary**\n\n";
       
@@ -198,6 +215,43 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
       console.error("Error summarizing report:", error);
       return {
         content: "I encountered an error while processing your report. Please make sure the backend server is running and try again.",
+        isError: true,
+      };
+    }
+  };
+
+  const chatAPI = async (message: string) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: message,
+          session_id: sessionId || undefined,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.detail || `API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      
+      // Store session ID if returned
+      if (data.session_id) {
+        setSessionId(data.session_id);
+      }
+
+      return {
+        content: data.response,
+      };
+    } catch (error: any) {
+      console.error("Error in chat:", error);
+      return {
+        content: error.message || "I encountered an error. Please try again.",
         isError: true,
       };
     }
@@ -239,14 +293,15 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
           lowerMessage.includes("headache") ||
           lowerMessage.includes("cough") ||
           lowerMessage.includes("ache") ||
-          lowerMessage.includes("hurt")
+          lowerMessage.includes("hurt") ||
+          lowerMessage.includes("sick") ||
+          lowerMessage.includes("tired") ||
+          lowerMessage.includes("dizzy")
         ) {
           aiResponse = await analyzeSymptomsAPI(currentInput);
         } else {
-          // Default response for other queries
-          aiResponse = {
-            content: "I understand you need help. Please provide more details about:\n\n• Your symptoms (for disease prediction)\n• Upload a PDF test report (for summarization)\n• Specific health concerns you have\n\nRemember, this is for informational purposes only. Always consult with a healthcare professional for proper medical advice.",
-          };
+          // Use general chat API for conversational queries with memory
+          aiResponse = await chatAPI(currentInput);
         }
       }
 
@@ -302,6 +357,7 @@ export function Chat({ username, isGuest, onLogout }: ChatProps) {
       },
     ]);
     setSelectedFile(null);
+    setSessionId(""); // Reset session for new conversation
   };
 
   return (

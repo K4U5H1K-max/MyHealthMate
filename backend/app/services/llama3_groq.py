@@ -2,7 +2,7 @@ import os
 import requests
 import json
 from dotenv import load_dotenv
-from typing import Dict, Any
+from typing import Dict, Any, List, Optional
 
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -24,7 +24,7 @@ SUMMARIZE_PROMPT = (
     "\nDo not give direct medical advice. Keep language safe and informational."
 )
 
-def llama3_summarize(text: str) -> dict:
+def llama3_summarize(text: str, conversation_history: Optional[List[Dict[str, str]]] = None) -> dict:
     if not GROQ_API_KEY:
         raise RuntimeError("GROQ_API_KEY not set in environment variables.")
     
@@ -36,12 +36,25 @@ def llama3_summarize(text: str) -> dict:
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
     }
+    
+    # Build messages with conversation history
+    messages = [
+        {"role": "system", "content": "You are a helpful medical research summarizer."}
+    ]
+    
+    # Add conversation history if available
+    if conversation_history:
+        messages.extend(conversation_history)
+    
+    # Add current request
+    messages.append({
+        "role": "user", 
+        "content": SUMMARIZE_PROMPT.format(input=text)
+    })
+    
     data = {
         "model": LLAMA3_MODEL,
-        "messages": [
-            {"role": "system", "content": "You are a helpful medical research summarizer."},
-            {"role": "user", "content": SUMMARIZE_PROMPT.format(input=text)}
-        ],
+        "messages": messages,
         "temperature": 0.3,
         "max_tokens": 1024
     }
@@ -273,3 +286,67 @@ def extract_symptoms_with_llm(user_input: str) -> Dict[str, Any]:
             "sex": None,
             "duration": None
         }
+
+
+def chat_with_context(user_message: str, conversation_history: Optional[List[Dict[str, str]]] = None) -> str:
+    """
+    General conversational chat with context awareness.
+    
+    Args:
+        user_message: The user's current message
+        conversation_history: Previous conversation messages for context
+        
+    Returns:
+        The assistant's response as a string
+    """
+    if not GROQ_API_KEY:
+        raise RuntimeError("GROQ_API_KEY not set in environment variables.")
+    
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    # Build messages with conversation history
+    messages = [
+        {
+            "role": "system", 
+            "content": (
+                "You are MyHealthMate AI, a specialized health assistant focused ONLY on health and medical topics. "
+                "Your role is to help users with:\n"
+                "- Symptom analysis and possible conditions\n"
+                "- Medical test report interpretation\n"
+                "- Health-related questions and concerns\n"
+                "- Follow-up questions about previous health discussions\n\n"
+                "IMPORTANT RESTRICTIONS:\n"
+                "- You MUST decline any non-health requests (essays, jokes, stories, coding, math problems, etc.)\n"
+                "- Politely redirect users to ask health-related questions instead\n"
+                "- If asked to do something outside of health, respond: 'I'm a health assistant and can only help with medical and health-related questions. Please ask me about your symptoms, health concerns, or medical reports.'\n\n"
+                "Remember previous conversation context to provide relevant responses. "
+                "Always remind users that your advice is for informational purposes only and they should consult healthcare professionals for medical decisions."
+            )
+        }
+    ]
+    
+    # Add conversation history if available
+    if conversation_history:
+        messages.extend(conversation_history)
+    
+    # Add current user message
+    messages.append({"role": "user", "content": user_message})
+    
+    data = {
+        "model": LLAMA3_MODEL,
+        "messages": messages,
+        "temperature": 0.7,
+        "max_tokens": 1024
+    }
+    
+    try:
+        response = requests.post(GROQ_API_URL, headers=headers, json=data, timeout=30)
+        response.raise_for_status()
+        result = response.json()
+        return result["choices"][0]["message"]["content"]
+    except requests.exceptions.RequestException as e:
+        print(f"Error in chat_with_context: {e}")
+        raise RuntimeError(f"Failed to generate response: {str(e)}")

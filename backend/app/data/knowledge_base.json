@@ -41,6 +41,77 @@
           },
           "tests": ["Chest X-ray", "CBC"],
           "triage_level": "Urgent care / emergency if severe"
+        },
+        {
+          "id": "U07.1",
+          "name": "COVID-19",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "fever": 0.85,
+            "cough": 0.8,
+            "fatigue": 0.7,
+            "loss_of_taste": 0.6,
+            "loss_of_smell": 0.6
+          },
+          "tests": ["COVID-19 PCR", "Rapid Antigen Test"],
+          "triage_level": "GP/teleconsult, emergency if severe"
+        },
+        {
+          "id": "J20",
+          "name": "Acute Bronchitis",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "cough": 0.9,
+            "fever": 0.5,
+            "chest_discomfort": 0.6,
+            "mucus_production": 0.7
+          },
+          "tests": ["Chest X-ray if persistent"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Respiratory Symptoms",
+      "causes": [
+        {
+          "id": "J45",
+          "name": "Asthma",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "wheezing": 0.85,
+            "shortness_of_breath": 0.8,
+            "cough": 0.7,
+            "chest_tightness": 0.75
+          },
+          "tests": ["Spirometry", "Peak Flow Measurement"],
+          "triage_level": "GP, emergency if severe attack"
+        },
+        {
+          "id": "J44",
+          "name": "COPD (Chronic Obstructive Pulmonary Disease)",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "shortness_of_breath": 0.9,
+            "chronic_cough": 0.85,
+            "wheezing": 0.7,
+            "mucus_production": 0.75
+          },
+          "tests": ["Spirometry", "Chest X-ray", "Arterial Blood Gas"],
+          "triage_level": "GP/pulmonologist"
+        },
+        {
+          "id": "J47",
+          "name": "Bronchiectasis",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "chronic_cough": 0.9,
+            "mucus_production": 0.85,
+            "shortness_of_breath": 0.7,
+            "wheezing": 0.6
+          },
+          "tests": ["CT Chest", "Sputum Culture"],
+          "triage_level": "Pulmonologist"
         }
       ]
     },
@@ -331,6 +402,2365 @@
           },
           "tests": ["Serum Uric Acid", "Joint Fluid Analysis"],
           "triage_level": "GP / urgent care"
+        }
+      ]
+    },
+    {
+      "group": "Digestive Issues - Upper GI",
+      "causes": [
+        {
+          "id": "K21",
+          "name": "GERD (Gastroesophageal Reflux Disease)",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "heartburn": 0.9,
+            "regurgitation": 0.75,
+            "chest_pain": 0.6,
+            "difficulty_swallowing": 0.5
+          },
+          "tests": ["Upper Endoscopy", "pH Monitoring"],
+          "triage_level": "GP/gastroenterologist"
+        },
+        {
+          "id": "K25",
+          "name": "Peptic Ulcer",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.85,
+            "burning_sensation": 0.8,
+            "nausea": 0.7,
+            "bloating": 0.6
+          },
+          "tests": ["H. pylori test", "Upper Endoscopy"],
+          "triage_level": "GP, emergency if bleeding"
+        },
+        {
+          "id": "K27",
+          "name": "Peptic Ulcer (Duodenal)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.9,
+            "pain_relieved_by_eating": 0.75,
+            "night_pain": 0.7
+          },
+          "tests": ["Upper Endoscopy", "H. pylori test"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Digestive Issues - Lower GI",
+      "causes": [
+        {
+          "id": "K58",
+          "name": "Irritable Bowel Syndrome (IBS)",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.85,
+            "bloating": 0.8,
+            "diarrhea": 0.7,
+            "constipation": 0.6
+          },
+          "tests": ["Colonoscopy to rule out other causes"],
+          "triage_level": "GP/gastroenterologist"
+        },
+        {
+          "id": "K50",
+          "name": "Crohn's Disease",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.85,
+            "diarrhea": 0.9,
+            "weight_loss": 0.75,
+            "fever": 0.6
+          },
+          "tests": ["Colonoscopy", "CT Enterography", "Inflammatory Markers"],
+          "triage_level": "Gastroenterologist"
+        },
+        {
+          "id": "K51",
+          "name": "Ulcerative Colitis",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "bloody_diarrhea": 0.9,
+            "abdominal_pain": 0.8,
+            "urgency": 0.85,
+            "weight_loss": 0.6
+          },
+          "tests": ["Colonoscopy", "Stool Tests", "CBC"],
+          "triage_level": "Gastroenterologist"
+        },
+        {
+          "id": "K57",
+          "name": "Diverticulitis",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.9,
+            "fever": 0.7,
+            "nausea": 0.6,
+            "constipation": 0.65
+          },
+          "tests": ["CT Abdomen", "CBC"],
+          "triage_level": "Urgent care/emergency"
+        }
+      ]
+    },
+    {
+      "group": "Urinary Symptoms",
+      "causes": [
+        {
+          "id": "N39.0",
+          "name": "Urinary Tract Infection (UTI)",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "burning_urination": 0.9,
+            "frequent_urination": 0.85,
+            "urgency": 0.8,
+            "lower_abdominal_pain": 0.7
+          },
+          "tests": ["Urinalysis", "Urine Culture"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "N10",
+          "name": "Pyelonephritis (Kidney Infection)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "fever": 0.85,
+            "back_pain": 0.9,
+            "nausea": 0.7,
+            "burning_urination": 0.8
+          },
+          "tests": ["Urinalysis", "Urine Culture", "Blood Culture"],
+          "triage_level": "Urgent care/emergency"
+        },
+        {
+          "id": "N20",
+          "name": "Kidney Stones",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "severe_flank_pain": 0.95,
+            "blood_in_urine": 0.8,
+            "nausea": 0.75,
+            "frequent_urination": 0.65
+          },
+          "tests": ["CT Scan", "Urinalysis"],
+          "triage_level": "Urgent care/emergency"
+        }
+      ]
+    },
+    {
+      "group": "Back Pain",
+      "causes": [
+        {
+          "id": "M54.5",
+          "name": "Lower Back Pain (Mechanical)",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "lower_back_pain": 0.9,
+            "pain_worse_with_movement": 0.8,
+            "muscle_stiffness": 0.75
+          },
+          "tests": ["X-ray if chronic", "MRI if neurological symptoms"],
+          "triage_level": "Self-care/GP"
+        },
+        {
+          "id": "M51",
+          "name": "Herniated Disc",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "back_pain": 0.85,
+            "leg_pain": 0.8,
+            "numbness": 0.7,
+            "weakness": 0.65
+          },
+          "tests": ["MRI", "CT Scan"],
+          "triage_level": "GP/orthopedist/neurosurgeon"
+        },
+        {
+          "id": "M48.06",
+          "name": "Spinal Stenosis",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "back_pain": 0.8,
+            "leg_pain_with_walking": 0.85,
+            "numbness": 0.7
+          },
+          "tests": ["MRI", "CT Scan"],
+          "triage_level": "Orthopedist/neurosurgeon"
+        }
+      ]
+    },
+    {
+      "group": "Skin Conditions - Inflammatory",
+      "causes": [
+        {
+          "id": "L20",
+          "name": "Atopic Dermatitis (Eczema)",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "rash": 0.9,
+            "itching": 0.95,
+            "dry_skin": 0.85,
+            "red_patches": 0.8
+          },
+          "tests": ["Clinical examination", "Patch testing"],
+          "triage_level": "GP/dermatologist"
+        },
+        {
+          "id": "L40",
+          "name": "Psoriasis",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "red_patches": 0.9,
+            "scaling": 0.9,
+            "itching": 0.7,
+            "joint_pain": 0.3
+          },
+          "tests": ["Skin biopsy if unclear"],
+          "triage_level": "Dermatologist"
+        },
+        {
+          "id": "L23",
+          "name": "Contact Dermatitis",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "rash": 0.9,
+            "itching": 0.85,
+            "redness": 0.85,
+            "blistering": 0.6
+          },
+          "tests": ["Patch testing"],
+          "triage_level": "GP/dermatologist"
+        }
+      ]
+    },
+    {
+      "group": "Skin Infections",
+      "causes": [
+        {
+          "id": "L01",
+          "name": "Impetigo",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "red_sores": 0.9,
+            "honey_crusted_lesions": 0.85,
+            "itching": 0.7
+          },
+          "tests": ["Clinical diagnosis", "Culture if needed"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "L02",
+          "name": "Cellulitis",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "red_skin": 0.9,
+            "swelling": 0.85,
+            "warmth": 0.85,
+            "fever": 0.6
+          },
+          "tests": ["Clinical diagnosis", "Blood culture if severe"],
+          "triage_level": "Urgent care/GP"
+        },
+        {
+          "id": "B02",
+          "name": "Shingles (Herpes Zoster)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "painful_rash": 0.95,
+            "blistering": 0.9,
+            "unilateral_distribution": 0.95,
+            "burning_sensation": 0.85
+          },
+          "tests": ["Clinical diagnosis"],
+          "triage_level": "GP, urgent if near eye"
+        },
+        {
+          "id": "B35",
+          "name": "Fungal Infection (Ringworm)",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "circular_rash": 0.9,
+            "red_border": 0.85,
+            "itching": 0.8,
+            "scaling": 0.75
+          },
+          "tests": ["KOH preparation", "Fungal culture"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Thyroid Disorders",
+      "causes": [
+        {
+          "id": "E05",
+          "name": "Hyperthyroidism",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "weight_loss": 0.8,
+            "rapid_heartbeat": 0.85,
+            "anxiety": 0.75,
+            "heat_intolerance": 0.8,
+            "tremor": 0.7
+          },
+          "tests": ["TSH", "Free T4", "Free T3", "Thyroid Ultrasound"],
+          "triage_level": "GP/endocrinologist"
+        },
+        {
+          "id": "E03",
+          "name": "Hypothyroidism",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "fatigue": 0.9,
+            "weight_gain": 0.75,
+            "cold_intolerance": 0.8,
+            "constipation": 0.7,
+            "dry_skin": 0.75
+          },
+          "tests": ["TSH", "Free T4"],
+          "triage_level": "GP/endocrinologist"
+        },
+        {
+          "id": "E04",
+          "name": "Thyroid Nodules",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "neck_lump": 0.7,
+            "difficulty_swallowing": 0.5,
+            "hoarseness": 0.4
+          },
+          "tests": ["Thyroid Ultrasound", "Fine Needle Aspiration", "TSH"],
+          "triage_level": "GP/endocrinologist"
+        }
+      ]
+    },
+    {
+      "group": "Diabetes Symptoms",
+      "causes": [
+        {
+          "id": "E11",
+          "name": "Type 2 Diabetes",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "increased_thirst": 0.8,
+            "frequent_urination": 0.85,
+            "fatigue": 0.75,
+            "blurred_vision": 0.6,
+            "slow_healing": 0.65
+          },
+          "tests": ["Fasting Glucose", "HbA1c", "Oral Glucose Tolerance Test"],
+          "triage_level": "GP/endocrinologist"
+        },
+        {
+          "id": "E10",
+          "name": "Type 1 Diabetes",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "increased_thirst": 0.9,
+            "frequent_urination": 0.9,
+            "weight_loss": 0.85,
+            "extreme_hunger": 0.8,
+            "fatigue": 0.85
+          },
+          "tests": ["Blood Glucose", "HbA1c", "C-peptide", "Autoantibodies"],
+          "triage_level": "Emergency if DKA suspected"
+        },
+        {
+          "id": "E14",
+          "name": "Prediabetes",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "increased_thirst": 0.4,
+            "fatigue": 0.5
+          },
+          "tests": ["Fasting Glucose", "HbA1c"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Neurological - Headache Types",
+      "causes": [
+        {
+          "id": "G43",
+          "name": "Migraine",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "throbbing_headache": 0.9,
+            "nausea": 0.7,
+            "light_sensitivity": 0.8,
+            "sound_sensitivity": 0.75,
+            "visual_aura": 0.3
+          },
+          "tests": ["Clinical diagnosis", "MRI if atypical"],
+          "triage_level": "GP/neurologist"
+        },
+        {
+          "id": "G44.2",
+          "name": "Tension Headache",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "bilateral_headache": 0.85,
+            "pressure_sensation": 0.8,
+            "muscle_tightness": 0.75,
+            "stress": 0.7
+          },
+          "tests": ["Usually none"],
+          "triage_level": "Self-care/GP"
+        },
+        {
+          "id": "G44.0",
+          "name": "Cluster Headache",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "severe_unilateral_pain": 0.95,
+            "eye_watering": 0.9,
+            "nasal_congestion": 0.85,
+            "restlessness": 0.8
+          },
+          "tests": ["Clinical diagnosis", "MRI to rule out other causes"],
+          "triage_level": "Neurologist"
+        }
+      ]
+    },
+    {
+      "group": "Neurological - Other",
+      "causes": [
+        {
+          "id": "G40",
+          "name": "Epilepsy",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "seizures": 0.95,
+            "loss_of_consciousness": 0.7,
+            "confusion": 0.65,
+            "staring_spells": 0.5
+          },
+          "tests": ["EEG", "MRI Brain", "Blood Tests"],
+          "triage_level": "Neurologist, emergency if active seizure"
+        },
+        {
+          "id": "G20",
+          "name": "Parkinson's Disease",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "tremor": 0.85,
+            "rigidity": 0.8,
+            "slow_movement": 0.9,
+            "balance_problems": 0.7
+          },
+          "tests": ["Clinical diagnosis", "DaTscan"],
+          "triage_level": "Neurologist"
+        },
+        {
+          "id": "G35",
+          "name": "Multiple Sclerosis",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "numbness": 0.8,
+            "vision_problems": 0.7,
+            "fatigue": 0.85,
+            "weakness": 0.75,
+            "balance_problems": 0.7
+          },
+          "tests": ["MRI Brain and Spine", "Lumbar Puncture", "Evoked Potentials"],
+          "triage_level": "Neurologist"
+        }
+      ]
+    },
+    {
+      "group": "Cardiovascular - Rhythm",
+      "causes": [
+        {
+          "id": "I48",
+          "name": "Atrial Fibrillation",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "palpitations": 0.85,
+            "irregular_heartbeat": 0.9,
+            "fatigue": 0.7,
+            "shortness_of_breath": 0.65
+          },
+          "tests": ["ECG", "Holter Monitor", "Echocardiogram"],
+          "triage_level": "Urgent care/cardiologist"
+        },
+        {
+          "id": "I47",
+          "name": "Supraventricular Tachycardia",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "rapid_heartbeat": 0.95,
+            "palpitations": 0.9,
+            "dizziness": 0.7,
+            "chest_discomfort": 0.6
+          },
+          "tests": ["ECG", "Holter Monitor"],
+          "triage_level": "Urgent care/emergency"
+        },
+        {
+          "id": "I49",
+          "name": "Premature Ventricular Contractions",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "palpitations": 0.8,
+            "skipped_beats": 0.85,
+            "chest_discomfort": 0.5
+          },
+          "tests": ["ECG", "Holter Monitor"],
+          "triage_level": "GP/cardiologist"
+        }
+      ]
+    },
+    {
+      "group": "Cardiovascular - Blood Pressure",
+      "causes": [
+        {
+          "id": "I10",
+          "name": "Essential Hypertension",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "headache": 0.4,
+            "dizziness": 0.3
+          },
+          "tests": ["Blood Pressure Monitoring", "ECG", "Blood Tests"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "I95",
+          "name": "Hypotension",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "dizziness": 0.85,
+            "fainting": 0.7,
+            "fatigue": 0.75,
+            "blurred_vision": 0.6
+          },
+          "tests": ["Blood Pressure Monitoring", "ECG", "Blood Tests"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Mental Health - Mood",
+      "causes": [
+        {
+          "id": "F32",
+          "name": "Major Depressive Disorder",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "persistent_sadness": 0.9,
+            "loss_of_interest": 0.85,
+            "fatigue": 0.8,
+            "sleep_disturbance": 0.75,
+            "appetite_changes": 0.7
+          },
+          "tests": ["Mental health assessment", "Thyroid tests"],
+          "triage_level": "GP/psychiatrist, emergency if suicidal"
+        },
+        {
+          "id": "F31",
+          "name": "Bipolar Disorder",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "mood_swings": 0.9,
+            "manic_episodes": 0.85,
+            "depressive_episodes": 0.85,
+            "impulsivity": 0.7
+          },
+          "tests": ["Psychiatric evaluation"],
+          "triage_level": "Psychiatrist"
+        },
+        {
+          "id": "F34",
+          "name": "Persistent Depressive Disorder (Dysthymia)",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "chronic_low_mood": 0.9,
+            "fatigue": 0.8,
+            "low_self_esteem": 0.75,
+            "poor_concentration": 0.7
+          },
+          "tests": ["Mental health assessment"],
+          "triage_level": "GP/psychiatrist"
+        }
+      ]
+    },
+    {
+      "group": "Mental Health - Anxiety",
+      "causes": [
+        {
+          "id": "F41.1",
+          "name": "Generalized Anxiety Disorder",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "excessive_worry": 0.95,
+            "restlessness": 0.8,
+            "fatigue": 0.75,
+            "muscle_tension": 0.8,
+            "sleep_problems": 0.75
+          },
+          "tests": ["Mental health assessment"],
+          "triage_level": "GP/psychiatrist"
+        },
+        {
+          "id": "F41.0",
+          "name": "Panic Disorder",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "panic_attacks": 0.95,
+            "rapid_heartbeat": 0.9,
+            "sweating": 0.85,
+            "trembling": 0.8,
+            "fear_of_dying": 0.75
+          },
+          "tests": ["Mental health assessment", "Rule out cardiac causes"],
+          "triage_level": "GP/psychiatrist"
+        },
+        {
+          "id": "F40",
+          "name": "Phobic Anxiety Disorders",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "specific_fears": 0.9,
+            "avoidance_behavior": 0.85,
+            "anxiety_in_specific_situations": 0.9
+          },
+          "tests": ["Mental health assessment"],
+          "triage_level": "GP/psychiatrist"
+        },
+        {
+          "id": "F43",
+          "name": "Post-Traumatic Stress Disorder (PTSD)",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "flashbacks": 0.85,
+            "nightmares": 0.8,
+            "avoidance": 0.85,
+            "hypervigilance": 0.8,
+            "emotional_numbing": 0.75
+          },
+          "tests": ["Mental health assessment"],
+          "triage_level": "Psychiatrist/psychologist"
+        }
+      ]
+    },
+    {
+      "group": "Eye Problems",
+      "causes": [
+        {
+          "id": "H10",
+          "name": "Conjunctivitis (Pink Eye)",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "red_eye": 0.95,
+            "discharge": 0.8,
+            "itching": 0.75,
+            "tearing": 0.7
+          },
+          "tests": ["Clinical examination"],
+          "triage_level": "GP/optometrist"
+        },
+        {
+          "id": "H40",
+          "name": "Glaucoma",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "gradual_vision_loss": 0.7,
+            "peripheral_vision_loss": 0.8,
+            "eye_pain": 0.4,
+            "headache": 0.5
+          },
+          "tests": ["Tonometry", "Visual Field Test", "Optic Nerve Exam"],
+          "triage_level": "Ophthalmologist"
+        },
+        {
+          "id": "H25",
+          "name": "Cataract",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "blurred_vision": 0.85,
+            "cloudy_vision": 0.9,
+            "glare_sensitivity": 0.75,
+            "faded_colors": 0.7
+          },
+          "tests": ["Eye examination", "Slit lamp exam"],
+          "triage_level": "Ophthalmologist"
+        },
+        {
+          "id": "H11",
+          "name": "Dry Eye Syndrome",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "dry_sensation": 0.9,
+            "burning": 0.8,
+            "redness": 0.75,
+            "blurred_vision": 0.6
+          },
+          "tests": ["Tear break-up time", "Schirmer test"],
+          "triage_level": "GP/optometrist"
+        }
+      ]
+    },
+    {
+      "group": "Ear Problems",
+      "causes": [
+        {
+          "id": "H66",
+          "name": "Otitis Media (Middle Ear Infection)",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "ear_pain": 0.9,
+            "fever": 0.7,
+            "hearing_loss": 0.6,
+            "ear_discharge": 0.5
+          },
+          "tests": ["Otoscopy"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "H60",
+          "name": "Otitis Externa (Outer Ear Infection)",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "ear_pain": 0.9,
+            "itching": 0.8,
+            "discharge": 0.75,
+            "pain_with_ear_movement": 0.85
+          },
+          "tests": ["Otoscopy", "Ear culture"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "H93",
+          "name": "Tinnitus",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "ringing_in_ears": 0.95,
+            "buzzing_sound": 0.8,
+            "hearing_loss": 0.6
+          },
+          "tests": ["Audiometry", "MRI if unilateral"],
+          "triage_level": "GP/ENT specialist"
+        }
+      ]
+    },
+    {
+      "group": "Throat Problems",
+      "causes": [
+        {
+          "id": "J03",
+          "name": "Tonsillitis",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "sore_throat": 0.95,
+            "difficulty_swallowing": 0.85,
+            "fever": 0.8,
+            "swollen_tonsils": 0.9
+          },
+          "tests": ["Throat swab", "Rapid Strep Test"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "J04",
+          "name": "Laryngitis",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "hoarseness": 0.95,
+            "voice_loss": 0.8,
+            "sore_throat": 0.7,
+            "cough": 0.65
+          },
+          "tests": ["Clinical examination", "Laryngoscopy if chronic"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "J02",
+          "name": "Pharyngitis",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "sore_throat": 0.95,
+            "pain_with_swallowing": 0.9,
+            "fever": 0.6,
+            "red_throat": 0.85
+          },
+          "tests": ["Throat swab", "Rapid Strep Test"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Women's Health - Menstrual",
+      "causes": [
+        {
+          "id": "N94.6",
+          "name": "Dysmenorrhea (Painful Periods)",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "pelvic_pain": 0.9,
+            "cramping": 0.95,
+            "lower_back_pain": 0.7,
+            "nausea": 0.6
+          },
+          "tests": ["Clinical examination", "Ultrasound if severe"],
+          "triage_level": "GP/gynecologist"
+        },
+        {
+          "id": "N92",
+          "name": "Heavy Menstrual Bleeding",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "prolonged_bleeding": 0.9,
+            "passing_clots": 0.8,
+            "fatigue": 0.75,
+            "anemia_symptoms": 0.7
+          },
+          "tests": ["CBC", "Pelvic Ultrasound", "Endometrial Biopsy"],
+          "triage_level": "GP/gynecologist"
+        },
+        {
+          "id": "E28.2",
+          "name": "Polycystic Ovary Syndrome (PCOS)",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "irregular_periods": 0.85,
+            "excess_hair_growth": 0.7,
+            "acne": 0.65,
+            "weight_gain": 0.6
+          },
+          "tests": ["Hormone levels", "Pelvic Ultrasound", "Glucose testing"],
+          "triage_level": "Gynecologist/endocrinologist"
+        }
+      ]
+    },
+    {
+      "group": "Women's Health - Pregnancy Related",
+      "causes": [
+        {
+          "id": "O21",
+          "name": "Morning Sickness",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "nausea": 0.9,
+            "vomiting": 0.8,
+            "food_aversions": 0.75
+          },
+          "tests": ["Pregnancy test", "Blood tests if severe"],
+          "triage_level": "GP/OB-GYN"
+        },
+        {
+          "id": "O14",
+          "name": "Preeclampsia",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "high_blood_pressure": 0.95,
+            "protein_in_urine": 0.9,
+            "headache": 0.7,
+            "vision_changes": 0.65,
+            "swelling": 0.8
+          },
+          "tests": ["Blood Pressure", "Urinalysis", "Blood Tests"],
+          "triage_level": "Emergency/OB-GYN"
+        }
+      ]
+    },
+    {
+      "group": "Men's Health",
+      "causes": [
+        {
+          "id": "N40",
+          "name": "Benign Prostatic Hyperplasia (BPH)",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "frequent_urination": 0.85,
+            "weak_stream": 0.8,
+            "nocturia": 0.85,
+            "incomplete_emptying": 0.75
+          },
+          "tests": ["PSA", "Digital Rectal Exam", "Urinalysis"],
+          "triage_level": "GP/urologist"
+        },
+        {
+          "id": "N41",
+          "name": "Prostatitis",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "pelvic_pain": 0.85,
+            "burning_urination": 0.8,
+            "frequent_urination": 0.75,
+            "fever": 0.6
+          },
+          "tests": ["Urinalysis", "Urine Culture", "Prostate Exam"],
+          "triage_level": "GP/urologist"
+        },
+        {
+          "id": "N48",
+          "name": "Erectile Dysfunction",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "difficulty_maintaining_erection": 0.9,
+            "reduced_sexual_desire": 0.6
+          },
+          "tests": ["Blood tests", "Hormone levels"],
+          "triage_level": "GP/urologist"
+        }
+      ]
+    },
+    {
+      "group": "Infectious Diseases",
+      "causes": [
+        {
+          "id": "A09",
+          "name": "Gastroenteritis",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "diarrhea": 0.95,
+            "nausea": 0.85,
+            "vomiting": 0.8,
+            "abdominal_cramps": 0.85,
+            "fever": 0.6
+          },
+          "tests": ["Stool culture if severe", "Stool ova and parasites"],
+          "triage_level": "Self-care/GP, urgent if dehydrated"
+        },
+        {
+          "id": "A18",
+          "name": "Tuberculosis",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "chronic_cough": 0.85,
+            "night_sweats": 0.8,
+            "weight_loss": 0.8,
+            "fever": 0.75,
+            "hemoptysis": 0.5
+          },
+          "tests": ["Chest X-ray", "Sputum Culture", "TB Skin Test", "Interferon Gamma Release Assay"],
+          "triage_level": "GP/infectious disease specialist"
+        },
+        {
+          "id": "B19",
+          "name": "Hepatitis B",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "fatigue": 0.8,
+            "jaundice": 0.7,
+            "abdominal_pain": 0.65,
+            "dark_urine": 0.7,
+            "nausea": 0.75
+          },
+          "tests": ["Hepatitis B Surface Antigen", "Liver Function Tests"],
+          "triage_level": "GP/hepatologist"
+        },
+        {
+          "id": "B18",
+          "name": "Hepatitis C",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "fatigue": 0.6,
+            "jaundice": 0.4
+          },
+          "tests": ["Hepatitis C Antibody", "HCV RNA", "Liver Function Tests"],
+          "triage_level": "GP/hepatologist"
+        },
+        {
+          "id": "B20",
+          "name": "HIV/AIDS",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "flu_like_symptoms": 0.7,
+            "fever": 0.75,
+            "fatigue": 0.8,
+            "swollen_lymph_nodes": 0.7,
+            "weight_loss": 0.6
+          },
+          "tests": ["HIV Antibody Test", "HIV Viral Load", "CD4 Count"],
+          "triage_level": "Infectious disease specialist"
+        }
+      ]
+    },
+    {
+      "group": "Blood Disorders - Anemia",
+      "causes": [
+        {
+          "id": "D50",
+          "name": "Iron Deficiency Anemia",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "fatigue": 0.9,
+            "pale_skin": 0.8,
+            "shortness_of_breath": 0.7,
+            "dizziness": 0.7,
+            "brittle_nails": 0.6
+          },
+          "tests": ["CBC", "Ferritin", "Iron Studies"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "D51",
+          "name": "Vitamin B12 Deficiency Anemia",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "fatigue": 0.85,
+            "numbness": 0.7,
+            "tingling": 0.7,
+            "balance_problems": 0.6,
+            "pale_skin": 0.75
+          },
+          "tests": ["CBC", "Vitamin B12 Level", "Methylmalonic Acid"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "D52",
+          "name": "Folate Deficiency Anemia",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "fatigue": 0.85,
+            "pale_skin": 0.75,
+            "shortness_of_breath": 0.7,
+            "irritability": 0.65
+          },
+          "tests": ["CBC", "Folate Level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "D64",
+          "name": "Sickle Cell Anemia",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "pain_crises": 0.9,
+            "fatigue": 0.85,
+            "jaundice": 0.75,
+            "swelling_hands_feet": 0.7
+          },
+          "tests": ["Hemoglobin Electrophoresis", "CBC"],
+          "triage_level": "Hematologist"
+        }
+      ]
+    },
+    {
+      "group": "Allergic Conditions",
+      "causes": [
+        {
+          "id": "J30",
+          "name": "Allergic Rhinitis (Hay Fever)",
+          "prior": 0.5,
+          "symptom_likelihoods": {
+            "sneezing": 0.9,
+            "runny_nose": 0.9,
+            "itchy_eyes": 0.85,
+            "nasal_congestion": 0.85
+          },
+          "tests": ["Allergy testing", "IgE levels"],
+          "triage_level": "GP/allergist"
+        },
+        {
+          "id": "T78.40",
+          "name": "Food Allergy",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "hives": 0.8,
+            "itching": 0.85,
+            "swelling": 0.75,
+            "nausea": 0.7,
+            "difficulty_breathing": 0.4
+          },
+          "tests": ["Skin Prick Test", "IgE Food Panel"],
+          "triage_level": "Allergist, emergency if anaphylaxis"
+        },
+        {
+          "id": "T78.2",
+          "name": "Anaphylaxis",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "difficulty_breathing": 0.9,
+            "swelling": 0.85,
+            "rapid_pulse": 0.9,
+            "dizziness": 0.8,
+            "hives": 0.85
+          },
+          "tests": ["Tryptase level", "Allergy testing after stabilization"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Sleep Disorders",
+      "causes": [
+        {
+          "id": "G47.0",
+          "name": "Insomnia",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "difficulty_falling_asleep": 0.85,
+            "frequent_waking": 0.8,
+            "early_morning_awakening": 0.75,
+            "daytime_fatigue": 0.85
+          },
+          "tests": ["Sleep diary", "Polysomnography if needed"],
+          "triage_level": "GP/sleep specialist"
+        },
+        {
+          "id": "G47.3",
+          "name": "Sleep Apnea",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "loud_snoring": 0.9,
+            "gasping_during_sleep": 0.85,
+            "daytime_sleepiness": 0.9,
+            "morning_headaches": 0.7
+          },
+          "tests": ["Polysomnography", "Home Sleep Study"],
+          "triage_level": "Sleep specialist"
+        },
+        {
+          "id": "G47.4",
+          "name": "Narcolepsy",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "excessive_daytime_sleepiness": 0.95,
+            "sudden_muscle_weakness": 0.7,
+            "sleep_paralysis": 0.6,
+            "hallucinations": 0.5
+          },
+          "tests": ["Polysomnography", "Multiple Sleep Latency Test"],
+          "triage_level": "Sleep specialist/neurologist"
+        }
+      ]
+    },
+    {
+      "group": "Bone and Mineral",
+      "causes": [
+        {
+          "id": "M80",
+          "name": "Osteoporosis",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "back_pain": 0.5,
+            "loss_of_height": 0.4,
+            "stooped_posture": 0.4
+          },
+          "tests": ["DEXA Scan", "Vitamin D Level", "Calcium Level"],
+          "triage_level": "GP/endocrinologist"
+        },
+        {
+          "id": "E55",
+          "name": "Vitamin D Deficiency",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "bone_pain": 0.7,
+            "muscle_weakness": 0.75,
+            "fatigue": 0.8,
+            "mood_changes": 0.6
+          },
+          "tests": ["25-hydroxyvitamin D level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "S72",
+          "name": "Hip Fracture",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "severe_hip_pain": 0.95,
+            "inability_to_walk": 0.9,
+            "shortened_leg": 0.8,
+            "external_rotation": 0.75
+          },
+          "tests": ["X-ray", "CT Scan"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Autoimmune Conditions",
+      "causes": [
+        {
+          "id": "M32",
+          "name": "Systemic Lupus Erythematosus (SLE)",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "joint_pain": 0.85,
+            "butterfly_rash": 0.6,
+            "fatigue": 0.9,
+            "fever": 0.7,
+            "photosensitivity": 0.7
+          },
+          "tests": ["ANA", "Anti-dsDNA", "Complement levels", "CBC", "Urinalysis"],
+          "triage_level": "Rheumatologist"
+        },
+        {
+          "id": "M34",
+          "name": "Scleroderma",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "skin_thickening": 0.9,
+            "raynauds_phenomenon": 0.85,
+            "difficulty_swallowing": 0.7,
+            "joint_pain": 0.75
+          },
+          "tests": ["ANA", "Skin Biopsy", "Pulmonary Function Tests"],
+          "triage_level": "Rheumatologist"
+        },
+        {
+          "id": "K90",
+          "name": "Celiac Disease",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "diarrhea": 0.8,
+            "abdominal_pain": 0.75,
+            "bloating": 0.8,
+            "weight_loss": 0.7,
+            "fatigue": 0.75
+          },
+          "tests": ["Tissue Transglutaminase IgA", "Total IgA", "Endoscopy with Biopsy"],
+          "triage_level": "GP/gastroenterologist"
+        }
+      ]
+    },
+    {
+      "group": "Chronic Pain",
+      "causes": [
+        {
+          "id": "M79.7",
+          "name": "Fibromyalgia",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "widespread_pain": 0.95,
+            "fatigue": 0.9,
+            "sleep_disturbance": 0.85,
+            "cognitive_difficulties": 0.8,
+            "tender_points": 0.85
+          },
+          "tests": ["Clinical diagnosis", "Tests to rule out other conditions"],
+          "triage_level": "Rheumatologist/pain specialist"
+        },
+        {
+          "id": "G89",
+          "name": "Chronic Pain Syndrome",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "persistent_pain": 0.95,
+            "fatigue": 0.8,
+            "mood_changes": 0.75,
+            "sleep_disturbance": 0.8
+          },
+          "tests": ["Based on underlying condition"],
+          "triage_level": "Pain specialist"
+        },
+        {
+          "id": "M54.2",
+          "name": "Cervical Pain (Neck Pain)",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "neck_pain": 0.95,
+            "stiffness": 0.85,
+            "headache": 0.6,
+            "shoulder_pain": 0.7
+          },
+          "tests": ["X-ray", "MRI if neurological symptoms"],
+          "triage_level": "GP/orthopedist"
+        }
+      ]
+    },
+    {
+      "group": "Cancer Screening Symptoms",
+      "causes": [
+        {
+          "id": "C34",
+          "name": "Lung Cancer",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "persistent_cough": 0.8,
+            "hemoptysis": 0.6,
+            "weight_loss": 0.7,
+            "chest_pain": 0.65,
+            "shortness_of_breath": 0.75
+          },
+          "tests": ["Chest X-ray", "CT Chest", "Biopsy"],
+          "triage_level": "Oncologist/pulmonologist"
+        },
+        {
+          "id": "C18",
+          "name": "Colorectal Cancer",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "rectal_bleeding": 0.7,
+            "change_in_bowel_habits": 0.75,
+            "abdominal_pain": 0.65,
+            "weight_loss": 0.6,
+            "fatigue": 0.7
+          },
+          "tests": ["Colonoscopy", "Fecal Occult Blood Test", "CEA"],
+          "triage_level": "Gastroenterologist/oncologist"
+        },
+        {
+          "id": "C50",
+          "name": "Breast Cancer",
+          "prior": 0.12,
+          "symptom_likelihoods": {
+            "breast_lump": 0.8,
+            "nipple_discharge": 0.5,
+            "skin_changes": 0.6,
+            "breast_pain": 0.5
+          },
+          "tests": ["Mammography", "Ultrasound", "Biopsy"],
+          "triage_level": "Oncologist/breast surgeon"
+        }
+      ]
+    },
+    {
+      "group": "Liver Diseases",
+      "causes": [
+        {
+          "id": "K70",
+          "name": "Alcoholic Liver Disease",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "abdominal_swelling": 0.7,
+            "jaundice": 0.75,
+            "fatigue": 0.8,
+            "nausea": 0.65,
+            "loss_of_appetite": 0.7
+          },
+          "tests": ["Liver Function Tests", "Abdominal Ultrasound", "Liver Biopsy"],
+          "triage_level": "Hepatologist"
+        },
+        {
+          "id": "K74",
+          "name": "Cirrhosis",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "fatigue": 0.85,
+            "jaundice": 0.8,
+            "ascites": 0.75,
+            "confusion": 0.6,
+            "easy_bruising": 0.7
+          },
+          "tests": ["Liver Function Tests", "Abdominal Ultrasound", "Fibroscan", "Endoscopy"],
+          "triage_level": "Hepatologist"
+        },
+        {
+          "id": "K76.0",
+          "name": "Fatty Liver Disease",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.8,
+            "fatigue": 0.5,
+            "abdominal_discomfort": 0.4
+          },
+          "tests": ["Liver Function Tests", "Abdominal Ultrasound", "Fibroscan"],
+          "triage_level": "GP/hepatologist"
+        },
+        {
+          "id": "K83.0",
+          "name": "Cholangitis",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "fever": 0.9,
+            "jaundice": 0.85,
+            "abdominal_pain": 0.85,
+            "chills": 0.8
+          },
+          "tests": ["Liver Function Tests", "Blood Cultures", "MRCP", "ERCP"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Kidney Diseases",
+      "causes": [
+        {
+          "id": "N18",
+          "name": "Chronic Kidney Disease",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "fatigue": 0.8,
+            "swelling": 0.75,
+            "decreased_appetite": 0.7,
+            "itching": 0.65,
+            "nausea": 0.7
+          },
+          "tests": ["Creatinine", "GFR", "Urinalysis", "Kidney Ultrasound"],
+          "triage_level": "Nephrologist"
+        },
+        {
+          "id": "N17",
+          "name": "Acute Kidney Injury",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "decreased_urine_output": 0.85,
+            "swelling": 0.8,
+            "confusion": 0.7,
+            "fatigue": 0.8,
+            "nausea": 0.75
+          },
+          "tests": ["Creatinine", "BUN", "Urinalysis", "Kidney Ultrasound"],
+          "triage_level": "Emergency"
+        },
+        {
+          "id": "N04",
+          "name": "Nephrotic Syndrome",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "severe_swelling": 0.9,
+            "foamy_urine": 0.85,
+            "weight_gain": 0.75,
+            "fatigue": 0.7
+          },
+          "tests": ["Urinalysis", "24-hour Urine Protein", "Kidney Biopsy"],
+          "triage_level": "Nephrologist"
+        }
+      ]
+    },
+    {
+      "group": "Hormonal - Adrenal",
+      "causes": [
+        {
+          "id": "E27.1",
+          "name": "Addison's Disease",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "fatigue": 0.9,
+            "weight_loss": 0.8,
+            "low_blood_pressure": 0.85,
+            "skin_darkening": 0.75,
+            "salt_craving": 0.7
+          },
+          "tests": ["Cortisol Level", "ACTH Stimulation Test", "Electrolytes"],
+          "triage_level": "Endocrinologist"
+        },
+        {
+          "id": "E24",
+          "name": "Cushing's Syndrome",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "weight_gain": 0.85,
+            "round_face": 0.8,
+            "easy_bruising": 0.75,
+            "high_blood_pressure": 0.8,
+            "purple_stretch_marks": 0.7
+          },
+          "tests": ["24-hour Urine Cortisol", "Dexamethasone Suppression Test", "MRI"],
+          "triage_level": "Endocrinologist"
+        },
+        {
+          "id": "E26",
+          "name": "Hyperaldosteronism",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "high_blood_pressure": 0.9,
+            "low_potassium": 0.85,
+            "muscle_weakness": 0.7,
+            "headache": 0.65
+          },
+          "tests": ["Aldosterone-Renin Ratio", "CT Abdomen"],
+          "triage_level": "Endocrinologist"
+        }
+      ]
+    },
+    {
+      "group": "Hormonal - Pituitary",
+      "causes": [
+        {
+          "id": "E22",
+          "name": "Acromegaly",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "enlarged_hands": 0.85,
+            "enlarged_feet": 0.85,
+            "facial_changes": 0.8,
+            "joint_pain": 0.7,
+            "headache": 0.65
+          },
+          "tests": ["IGF-1 Level", "Growth Hormone Suppression Test", "MRI Pituitary"],
+          "triage_level": "Endocrinologist"
+        },
+        {
+          "id": "E23",
+          "name": "Hypopituitarism",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "fatigue": 0.85,
+            "weight_changes": 0.7,
+            "cold_sensitivity": 0.65,
+            "low_blood_pressure": 0.7,
+            "decreased_libido": 0.75
+          },
+          "tests": ["Hormone Panel", "MRI Pituitary"],
+          "triage_level": "Endocrinologist"
+        }
+      ]
+    },
+    {
+      "group": "Nutritional Deficiencies",
+      "causes": [
+        {
+          "id": "E51",
+          "name": "Thiamine (Vitamin B1) Deficiency",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "confusion": 0.75,
+            "muscle_weakness": 0.8,
+            "numbness": 0.7,
+            "difficulty_walking": 0.7
+          },
+          "tests": ["Thiamine Level", "Blood Tests"],
+          "triage_level": "GP/neurologist"
+        },
+        {
+          "id": "E53",
+          "name": "Niacin (Vitamin B3) Deficiency",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "dermatitis": 0.8,
+            "diarrhea": 0.75,
+            "confusion": 0.7,
+            "inflamed_tongue": 0.75
+          },
+          "tests": ["Niacin Level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "E54",
+          "name": "Vitamin C Deficiency (Scurvy)",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "easy_bruising": 0.85,
+            "bleeding_gums": 0.9,
+            "joint_pain": 0.75,
+            "fatigue": 0.8
+          },
+          "tests": ["Vitamin C Level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "E56",
+          "name": "Vitamin K Deficiency",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "easy_bruising": 0.9,
+            "bleeding": 0.85,
+            "heavy_periods": 0.7
+          },
+          "tests": ["PT/INR", "Vitamin K Level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "E61",
+          "name": "Zinc Deficiency",
+          "prior": 0.12,
+          "symptom_likelihoods": {
+            "hair_loss": 0.75,
+            "diarrhea": 0.7,
+            "delayed_wound_healing": 0.8,
+            "loss_of_taste": 0.7,
+            "rash": 0.65
+          },
+          "tests": ["Serum Zinc Level"],
+          "triage_level": "GP"
+        },
+        {
+          "id": "E61.1",
+          "name": "Magnesium Deficiency",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "muscle_cramps": 0.85,
+            "tremor": 0.75,
+            "fatigue": 0.8,
+            "irregular_heartbeat": 0.6
+          },
+          "tests": ["Serum Magnesium Level"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Vascular Diseases",
+      "causes": [
+        {
+          "id": "I73",
+          "name": "Peripheral Artery Disease",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "leg_pain_with_walking": 0.85,
+            "leg_numbness": 0.7,
+            "cold_feet": 0.75,
+            "slow_healing_wounds": 0.65
+          },
+          "tests": ["Ankle-Brachial Index", "Doppler Ultrasound", "Angiography"],
+          "triage_level": "Vascular surgeon"
+        },
+        {
+          "id": "I80",
+          "name": "Deep Vein Thrombosis (DVT)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "leg_swelling": 0.85,
+            "leg_pain": 0.8,
+            "warmth": 0.75,
+            "redness": 0.7
+          },
+          "tests": ["D-dimer", "Doppler Ultrasound"],
+          "triage_level": "Emergency/urgent care"
+        },
+        {
+          "id": "I26",
+          "name": "Pulmonary Embolism",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "sudden_shortness_of_breath": 0.9,
+            "chest_pain": 0.85,
+            "rapid_heartbeat": 0.8,
+            "coughing_blood": 0.4
+          },
+          "tests": ["D-dimer", "CT Pulmonary Angiography", "VQ Scan"],
+          "triage_level": "Emergency"
+        },
+        {
+          "id": "I71",
+          "name": "Aortic Aneurysm",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.6,
+            "pulsating_abdomen": 0.5,
+            "back_pain": 0.4,
+            "abdominal_pain": 0.45
+          },
+          "tests": ["Abdominal Ultrasound", "CT Angiography"],
+          "triage_level": "Vascular surgeon, emergency if rupture"
+        }
+      ]
+    },
+    {
+      "group": "Blood Clotting Disorders",
+      "causes": [
+        {
+          "id": "D68.0",
+          "name": "Von Willebrand Disease",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "easy_bruising": 0.85,
+            "prolonged_bleeding": 0.9,
+            "heavy_periods": 0.8,
+            "nosebleeds": 0.75
+          },
+          "tests": ["von Willebrand Factor", "Bleeding Time", "CBC"],
+          "triage_level": "Hematologist"
+        },
+        {
+          "id": "D66",
+          "name": "Hemophilia A",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "prolonged_bleeding": 0.95,
+            "joint_bleeding": 0.85,
+            "easy_bruising": 0.9,
+            "muscle_bleeding": 0.75
+          },
+          "tests": ["Factor VIII Level", "PTT", "CBC"],
+          "triage_level": "Hematologist"
+        },
+        {
+          "id": "D69",
+          "name": "Thrombocytopenia (Low Platelets)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "easy_bruising": 0.85,
+            "petechiae": 0.8,
+            "prolonged_bleeding": 0.85,
+            "nosebleeds": 0.7
+          },
+          "tests": ["CBC", "Platelet Count", "Blood Smear"],
+          "triage_level": "Hematologist"
+        },
+        {
+          "id": "D68.6",
+          "name": "Thrombophilia",
+          "prior": 0.12,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "recurrent_clots": 0.8,
+            "family_history": 0.6
+          },
+          "tests": ["Factor V Leiden", "Protein C and S", "Antithrombin III"],
+          "triage_level": "Hematologist"
+        }
+      ]
+    },
+    {
+      "group": "Electrolyte Imbalances",
+      "causes": [
+        {
+          "id": "E87.5",
+          "name": "Hyperkalemia (High Potassium)",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "muscle_weakness": 0.75,
+            "irregular_heartbeat": 0.8,
+            "nausea": 0.65,
+            "tingling": 0.7
+          },
+          "tests": ["Basic Metabolic Panel", "ECG"],
+          "triage_level": "Emergency if severe"
+        },
+        {
+          "id": "E87.6",
+          "name": "Hypokalemia (Low Potassium)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "muscle_weakness": 0.8,
+            "muscle_cramps": 0.85,
+            "constipation": 0.7,
+            "irregular_heartbeat": 0.65
+          },
+          "tests": ["Basic Metabolic Panel", "ECG"],
+          "triage_level": "GP, emergency if severe"
+        },
+        {
+          "id": "E87.1",
+          "name": "Hyponatremia (Low Sodium)",
+          "prior": 0.18,
+          "symptom_likelihoods": {
+            "confusion": 0.8,
+            "nausea": 0.75,
+            "headache": 0.7,
+            "fatigue": 0.8,
+            "seizures": 0.3
+          },
+          "tests": ["Basic Metabolic Panel"],
+          "triage_level": "Emergency if severe"
+        },
+        {
+          "id": "E87.0",
+          "name": "Hypercalcemia (High Calcium)",
+          "prior": 0.12,
+          "symptom_likelihoods": {
+            "fatigue": 0.75,
+            "frequent_urination": 0.7,
+            "kidney_stones": 0.5,
+            "confusion": 0.6,
+            "nausea": 0.65
+          },
+          "tests": ["Calcium Level", "PTH", "Vitamin D Level"],
+          "triage_level": "GP/endocrinologist"
+        },
+        {
+          "id": "E83.5",
+          "name": "Hypocalcemia (Low Calcium)",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "muscle_cramps": 0.85,
+            "tingling": 0.8,
+            "muscle_spasms": 0.8,
+            "confusion": 0.6
+          },
+          "tests": ["Calcium Level", "PTH", "Vitamin D Level"],
+          "triage_level": "GP"
+        }
+      ]
+    },
+    {
+      "group": "Eating Disorders",
+      "causes": [
+        {
+          "id": "F50.0",
+          "name": "Anorexia Nervosa",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "extreme_weight_loss": 0.95,
+            "fear_of_gaining_weight": 0.95,
+            "distorted_body_image": 0.9,
+            "amenorrhea": 0.8,
+            "fatigue": 0.8
+          },
+          "tests": ["Comprehensive Metabolic Panel", "ECG", "DEXA Scan"],
+          "triage_level": "Psychiatrist/eating disorder specialist"
+        },
+        {
+          "id": "F50.2",
+          "name": "Bulimia Nervosa",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "binge_eating": 0.95,
+            "purging": 0.9,
+            "dental_problems": 0.7,
+            "swollen_cheeks": 0.65,
+            "irregular_periods": 0.6
+          },
+          "tests": ["Electrolytes", "Dental Exam", "Mental Health Assessment"],
+          "triage_level": "Psychiatrist/eating disorder specialist"
+        },
+        {
+          "id": "F50.8",
+          "name": "Binge Eating Disorder",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "recurrent_binge_eating": 0.95,
+            "feeling_loss_of_control": 0.9,
+            "eating_rapidly": 0.85,
+            "feeling_disgusted": 0.8,
+            "weight_gain": 0.7
+          },
+          "tests": ["Mental Health Assessment", "Metabolic Panel"],
+          "triage_level": "Psychiatrist/eating disorder specialist"
+        }
+      ]
+    },
+    {
+      "group": "Substance Use Disorders",
+      "causes": [
+        {
+          "id": "F10",
+          "name": "Alcohol Use Disorder",
+          "prior": 0.4,
+          "symptom_likelihoods": {
+            "craving_alcohol": 0.9,
+            "inability_to_control_drinking": 0.85,
+            "withdrawal_symptoms": 0.8,
+            "tolerance": 0.85
+          },
+          "tests": ["Liver Function Tests", "AUDIT Screening"],
+          "triage_level": "Addiction specialist/psychiatrist"
+        },
+        {
+          "id": "F17",
+          "name": "Nicotine Dependence",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "craving_tobacco": 0.95,
+            "irritability_when_not_smoking": 0.85,
+            "difficulty_quitting": 0.9
+          },
+          "tests": ["Clinical assessment"],
+          "triage_level": "GP/addiction specialist"
+        },
+        {
+          "id": "F11",
+          "name": "Opioid Use Disorder",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "craving_opioids": 0.95,
+            "withdrawal_symptoms": 0.9,
+            "tolerance": 0.9,
+            "inability_to_stop": 0.85
+          },
+          "tests": ["Urine Drug Screen", "Clinical Assessment"],
+          "triage_level": "Addiction specialist"
+        }
+      ]
+    },
+    {
+      "group": "Pregnancy Complications",
+      "causes": [
+        {
+          "id": "O20",
+          "name": "Threatened Miscarriage",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "vaginal_bleeding": 0.9,
+            "cramping": 0.75,
+            "lower_back_pain": 0.6
+          },
+          "tests": ["Ultrasound", "hCG levels"],
+          "triage_level": "OB-GYN/emergency"
+        },
+        {
+          "id": "O24",
+          "name": "Gestational Diabetes",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "increased_thirst": 0.5,
+            "frequent_urination": 0.6
+          },
+          "tests": ["Glucose Tolerance Test", "Fasting Glucose"],
+          "triage_level": "OB-GYN"
+        },
+        {
+          "id": "O48",
+          "name": "Post-term Pregnancy",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "pregnancy_beyond_42_weeks": 0.95,
+            "decreased_fetal_movement": 0.4
+          },
+          "tests": ["Non-stress Test", "Biophysical Profile", "Ultrasound"],
+          "triage_level": "OB-GYN"
+        },
+        {
+          "id": "O42",
+          "name": "Premature Rupture of Membranes",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "gush_of_fluid": 0.9,
+            "continuous_leaking": 0.85,
+            "contractions": 0.6
+          },
+          "tests": ["Nitrazine Test", "Ferning Test", "Ultrasound"],
+          "triage_level": "Emergency/OB-GYN"
+        }
+      ]
+    },
+    {
+      "group": "Pediatric - Common Illnesses",
+      "causes": [
+        {
+          "id": "J12",
+          "name": "RSV (Respiratory Syncytial Virus)",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "cough": 0.9,
+            "wheezing": 0.85,
+            "rapid_breathing": 0.8,
+            "fever": 0.75,
+            "difficulty_feeding": 0.7
+          },
+          "tests": ["Nasal Swab", "Chest X-ray if severe"],
+          "triage_level": "Pediatrician, emergency if respiratory distress"
+        },
+        {
+          "id": "B08",
+          "name": "Hand, Foot, and Mouth Disease",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "mouth_sores": 0.9,
+            "rash_on_hands": 0.85,
+            "rash_on_feet": 0.85,
+            "fever": 0.8
+          },
+          "tests": ["Clinical diagnosis"],
+          "triage_level": "Pediatrician"
+        },
+        {
+          "id": "J06",
+          "name": "Croup",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "barking_cough": 0.95,
+            "stridor": 0.85,
+            "hoarseness": 0.8,
+            "difficulty_breathing": 0.7
+          },
+          "tests": ["Clinical diagnosis", "Neck X-ray if atypical"],
+          "triage_level": "Pediatrician, emergency if severe"
+        },
+        {
+          "id": "B05",
+          "name": "Measles",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "high_fever": 0.9,
+            "cough": 0.85,
+            "runny_nose": 0.85,
+            "red_eyes": 0.8,
+            "rash": 0.95
+          },
+          "tests": ["Measles IgM Antibody"],
+          "triage_level": "Pediatrician/infectious disease"
+        }
+      ]
+    },
+    {
+      "group": "Pediatric - Growth and Development",
+      "causes": [
+        {
+          "id": "E34.3",
+          "name": "Growth Hormone Deficiency",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "short_stature": 0.95,
+            "delayed_puberty": 0.7,
+            "slow_growth_rate": 0.9
+          },
+          "tests": ["Growth Hormone Stimulation Test", "IGF-1", "Bone Age X-ray"],
+          "triage_level": "Pediatric endocrinologist"
+        },
+        {
+          "id": "F84",
+          "name": "Autism Spectrum Disorder",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "social_communication_difficulties": 0.95,
+            "repetitive_behaviors": 0.9,
+            "restricted_interests": 0.85,
+            "sensory_sensitivities": 0.75
+          },
+          "tests": ["Developmental Assessment", "ADOS-2"],
+          "triage_level": "Developmental pediatrician/child psychiatrist"
+        },
+        {
+          "id": "F90",
+          "name": "ADHD (Attention Deficit Hyperactivity Disorder)",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "inattention": 0.9,
+            "hyperactivity": 0.85,
+            "impulsivity": 0.85,
+            "difficulty_focusing": 0.9
+          },
+          "tests": ["ADHD Rating Scales", "Psychological Assessment"],
+          "triage_level": "Pediatrician/child psychiatrist"
+        }
+      ]
+    },
+    {
+      "group": "Elderly - Geriatric Syndromes",
+      "causes": [
+        {
+          "id": "R54",
+          "name": "Frailty Syndrome",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "weakness": 0.9,
+            "slow_walking": 0.85,
+            "unintentional_weight_loss": 0.8,
+            "exhaustion": 0.85,
+            "low_physical_activity": 0.8
+          },
+          "tests": ["Comprehensive Geriatric Assessment", "Grip Strength", "Gait Speed"],
+          "triage_level": "Geriatrician"
+        },
+        {
+          "id": "F03",
+          "name": "Dementia",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "memory_loss": 0.95,
+            "confusion": 0.9,
+            "difficulty_with_daily_tasks": 0.85,
+            "personality_changes": 0.75,
+            "getting_lost": 0.7
+          },
+          "tests": ["MMSE", "MoCA", "Brain MRI", "Neuropsychological Testing"],
+          "triage_level": "Neurologist/geriatrician"
+        },
+        {
+          "id": "R29.6",
+          "name": "Falls (Recurrent)",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "balance_problems": 0.85,
+            "weakness": 0.8,
+            "dizziness": 0.75,
+            "fear_of_falling": 0.7
+          },
+          "tests": ["Gait Assessment", "Balance Testing", "Medication Review"],
+          "triage_level": "Geriatrician/physical therapy"
+        },
+        {
+          "id": "R32",
+          "name": "Urinary Incontinence",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "involuntary_urine_loss": 0.95,
+            "urgency": 0.8,
+            "frequent_urination": 0.85
+          },
+          "tests": ["Urinalysis", "Urodynamic Studies", "Post-void Residual"],
+          "triage_level": "GP/urologist"
+        }
+      ]
+    },
+    {
+      "group": "Occupational and Environmental",
+      "causes": [
+        {
+          "id": "J60",
+          "name": "Pneumoconiosis (Coal Worker's Lung)",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "chronic_cough": 0.85,
+            "shortness_of_breath": 0.9,
+            "black_sputum": 0.7
+          },
+          "tests": ["Chest X-ray", "Pulmonary Function Tests", "Occupational History"],
+          "triage_level": "Pulmonologist/occupational medicine"
+        },
+        {
+          "id": "J61",
+          "name": "Asbestosis",
+          "prior": 0.08,
+          "symptom_likelihoods": {
+            "shortness_of_breath": 0.9,
+            "chronic_cough": 0.85,
+            "chest_tightness": 0.75,
+            "clubbing_of_fingers": 0.6
+          },
+          "tests": ["Chest X-ray", "CT Chest", "Pulmonary Function Tests"],
+          "triage_level": "Pulmonologist"
+        },
+        {
+          "id": "T56",
+          "name": "Lead Poisoning",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "abdominal_pain": 0.75,
+            "constipation": 0.7,
+            "fatigue": 0.8,
+            "memory_problems": 0.7,
+            "joint_pain": 0.65
+          },
+          "tests": ["Blood Lead Level", "CBC"],
+          "triage_level": "Occupational medicine/toxicologist"
+        },
+        {
+          "id": "T65",
+          "name": "Carbon Monoxide Poisoning",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "headache": 0.9,
+            "dizziness": 0.85,
+            "nausea": 0.8,
+            "confusion": 0.75,
+            "shortness_of_breath": 0.7
+          },
+          "tests": ["Carboxyhemoglobin Level", "Arterial Blood Gas"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Dental and Oral Health",
+      "causes": [
+        {
+          "id": "K04",
+          "name": "Dental Abscess",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "severe_toothache": 0.95,
+            "swelling": 0.85,
+            "fever": 0.7,
+            "bad_taste": 0.75,
+            "difficulty_swallowing": 0.6
+          },
+          "tests": ["Dental X-ray", "Clinical examination"],
+          "triage_level": "Dentist/emergency if severe"
+        },
+        {
+          "id": "K05",
+          "name": "Gingivitis",
+          "prior": 0.45,
+          "symptom_likelihoods": {
+            "bleeding_gums": 0.9,
+            "red_gums": 0.85,
+            "swollen_gums": 0.8,
+            "bad_breath": 0.75
+          },
+          "tests": ["Dental examination", "Periodontal probing"],
+          "triage_level": "Dentist"
+        },
+        {
+          "id": "K12",
+          "name": "Oral Thrush (Candidiasis)",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "white_patches": 0.95,
+            "soreness": 0.8,
+            "difficulty_swallowing": 0.6,
+            "loss_of_taste": 0.65
+          },
+          "tests": ["Clinical examination", "Oral swab"],
+          "triage_level": "GP/dentist"
+        }
+      ]
+    },
+    {
+      "group": "Sexual Health - STIs",
+      "causes": [
+        {
+          "id": "A54",
+          "name": "Gonorrhea",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "urethral_discharge": 0.85,
+            "burning_urination": 0.8,
+            "pelvic_pain": 0.6,
+            "often_asymptomatic": 0.5
+          },
+          "tests": ["NAAT Test", "Culture"],
+          "triage_level": "Sexual health clinic/GP"
+        },
+        {
+          "id": "A56",
+          "name": "Chlamydia",
+          "prior": 0.35,
+          "symptom_likelihoods": {
+            "often_asymptomatic": 0.7,
+            "discharge": 0.6,
+            "burning_urination": 0.65,
+            "pelvic_pain": 0.5
+          },
+          "tests": ["NAAT Test"],
+          "triage_level": "Sexual health clinic/GP"
+        },
+        {
+          "id": "A60",
+          "name": "Genital Herpes",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "painful_blisters": 0.9,
+            "itching": 0.75,
+            "burning": 0.8,
+            "flu_like_symptoms": 0.6
+          },
+          "tests": ["HSV PCR", "Viral Culture"],
+          "triage_level": "Sexual health clinic/GP"
+        },
+        {
+          "id": "A63",
+          "name": "Syphilis",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "painless_sore": 0.85,
+            "rash": 0.7,
+            "swollen_lymph_nodes": 0.75,
+            "fever": 0.6
+          },
+          "tests": ["RPR", "VDRL", "Treponemal Tests"],
+          "triage_level": "Sexual health clinic/GP"
+        }
+      ]
+    },
+    {
+      "group": "Temperature Regulation",
+      "causes": [
+        {
+          "id": "T67",
+          "name": "Heat Exhaustion",
+          "prior": 0.3,
+          "symptom_likelihoods": {
+            "heavy_sweating": 0.9,
+            "weakness": 0.85,
+            "dizziness": 0.8,
+            "nausea": 0.75,
+            "muscle_cramps": 0.7
+          },
+          "tests": ["Core temperature", "Electrolytes"],
+          "triage_level": "Urgent care/emergency"
+        },
+        {
+          "id": "T67.0",
+          "name": "Heat Stroke",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "high_body_temperature": 0.95,
+            "altered_mental_state": 0.9,
+            "hot_dry_skin": 0.85,
+            "rapid_pulse": 0.9,
+            "unconsciousness": 0.7
+          },
+          "tests": ["Core temperature", "Electrolytes", "Kidney Function"],
+          "triage_level": "Emergency"
+        },
+        {
+          "id": "T68",
+          "name": "Hypothermia",
+          "prior": 0.2,
+          "symptom_likelihoods": {
+            "shivering": 0.85,
+            "confusion": 0.8,
+            "slurred_speech": 0.75,
+            "slow_breathing": 0.7,
+            "drowsiness": 0.8
+          },
+          "tests": ["Core temperature", "ECG", "Basic Metabolic Panel"],
+          "triage_level": "Emergency"
+        }
+      ]
+    },
+    {
+      "group": "Tick-borne and Vector Diseases",
+      "causes": [
+        {
+          "id": "A69.2",
+          "name": "Lyme Disease",
+          "prior": 0.25,
+          "symptom_likelihoods": {
+            "bulls_eye_rash": 0.7,
+            "fever": 0.75,
+            "fatigue": 0.85,
+            "joint_pain": 0.8,
+            "headache": 0.75
+          },
+          "tests": ["Lyme Antibody", "Western Blot"],
+          "triage_level": "GP/infectious disease specialist"
+        },
+        {
+          "id": "A77",
+          "name": "Rocky Mountain Spotted Fever",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "fever": 0.95,
+            "rash": 0.85,
+            "headache": 0.9,
+            "nausea": 0.75,
+            "muscle_aches": 0.8
+          },
+          "tests": ["Serology", "PCR"],
+          "triage_level": "Infectious disease specialist"
+        },
+        {
+          "id": "A50",
+          "name": "Malaria",
+          "prior": 0.15,
+          "symptom_likelihoods": {
+            "fever": 0.95,
+            "chills": 0.9,
+            "sweating": 0.85,
+            "headache": 0.85,
+            "nausea": 0.75
+          },
+          "tests": ["Blood Smear", "Rapid Diagnostic Test", "PCR"],
+          "triage_level": "Infectious disease specialist/emergency"
+        }
+      ]
+    },
+    {
+      "group": "Genetic Disorders",
+      "causes": [
+        {
+          "id": "E84",
+          "name": "Cystic Fibrosis",
+          "prior": 0.1,
+          "symptom_likelihoods": {
+            "chronic_cough": 0.9,
+            "frequent_lung_infections": 0.9,
+            "poor_weight_gain": 0.85,
+            "salty_tasting_skin": 0.7,
+            "digestive_problems": 0.8
+          },
+          "tests": ["Sweat Chloride Test", "Genetic Testing", "Pulmonary Function Tests"],
+          "triage_level": "Pulmonologist/geneticist"
+        },
+        {
+          "id": "Q90",
+          "name": "Down Syndrome",
+          "prior": 0.05,
+          "symptom_likelihoods": {
+            "characteristic_facial_features": 0.95,
+            "developmental_delay": 0.9,
+            "low_muscle_tone": 0.85,
+            "heart_defects": 0.5
+          },
+          "tests": ["Karyotype", "Prenatal Screening"],
+          "triage_level": "Geneticist/pediatrician"
+        },
+        {
+          "id": "E70",
+          "name": "Phenylketonuria (PKU)",
+          "prior": 0.03,
+          "symptom_likelihoods": {
+            "developmental_delay": 0.8,
+            "seizures": 0.7,
+            "musty_odor": 0.75,
+            "light_skin_and_hair": 0.7
+          },
+          "tests": ["Newborn Screening", "Phenylalanine Level"],
+          "triage_level": "Geneticist/metabolic specialist"
         }
       ]
     }
