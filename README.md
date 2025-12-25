@@ -67,21 +67,143 @@ myhealthmate/
 
 ## 🛠 Setup Instructions
 
-### **Clone the Repository**
+### **Prerequisites**
+Before you begin, make sure you have the following installed:
+- **Python 3.8+** ([Download here](https://www.python.org/downloads/))
+- **Node.js 16+** and npm ([Download here](https://nodejs.org/))
+- **Git** ([Download here](https://git-scm.com/downloads))
 
+---
+
+### **Step 1: Clone the Repository**
+Open your terminal (Command Prompt, PowerShell, or Terminal) and run:
+
+```bash
 git clone https://github.com/K4U5H1K-max/MyHealthMate.git
-cd myhealthmate
+cd MyHealthMate
+```
 
-### **Backend Setup (FastAPI)**
-cd backend
+---
+
+### **Step 2: Backend Setup (FastAPI)**
+
+#### **2.1 Create a Virtual Environment**
+A virtual environment keeps your project dependencies isolated from other Python projects.
+
+```bash
+# Navigate to the project root (if not already there)
+cd MyHealthMate
+
+# Create a virtual environment named 'venv'
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+```
+
+#### **2.2 Activate the Virtual Environment**
+
+**On Windows (Command Prompt or PowerShell):**
+```bash
+venv\Scripts\activate
+```
+
+**On macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+You should see `(venv)` appear at the start of your terminal prompt, indicating the virtual environment is active.
+
+#### **2.3 Install Dependencies**
+Install all required Python packages from `requirements.txt`:
+
+```bash
 pip install -r requirements.txt
+```
 
-# Run the FastAPI server
+This will install FastAPI, uvicorn, and all other dependencies needed for the backend.
+
+#### **2.4 Start the Backend Server**
+Navigate to the backend folder and start the FastAPI server:
+
+```bash
+cd backend
 uvicorn app.main:app --reload
+```
 
-### **Frontend Setup (Next.js)**
-cd frontend
+The backend API will be running at `http://localhost:8000`  
+You can view the API documentation at `http://localhost:8000/docs`
+
+> **Keep this terminal window open** while using the application!
+
+---
+
+### **Step 3: Frontend Setup (Next.js)**
+
+Open a **new terminal window** (keep the backend running in the previous one).
+
+#### **3.1 Navigate to Frontend Directory**
+```bash
+cd MyHealthMate/frontend
+```
+
+#### **3.2 Install Node Dependencies**
+Install all required npm packages:
+
+```bash
 npm install
+```
+
+This will download and install React, Next.js, Tailwind CSS, and other frontend dependencies.
+
+#### **3.3 Start the Frontend Development Server**
+```bash
 npm run dev
+```
+
+The frontend will be running at `http://localhost:3000`
+
+> **Keep this terminal window open** as well!
+
+---
+
+### **Step 4: Access the Application**
+Open your web browser and navigate to:
+```
+http://localhost:3000
+```
+
+You should now see the MyHealthMate application! 🎉
+
+---
+
+### **🔄 Stopping the Application**
+
+**To stop the servers:**
+- Press `Ctrl + C` in each terminal window where the servers are running
+
+**To deactivate the virtual environment (backend):**
+```bash
+deactivate
+```
+
+---
+
+### **📝 Quick Restart Guide**
+
+**Next time you want to run the application:**
+
+1. **Terminal 1 (Backend):**
+   ```bash
+   cd MyHealthMate
+   venv\Scripts\activate  # On Windows
+   # source venv/bin/activate  # On macOS/Linux
+   cd backend
+   uvicorn app.main:app --reload
+   ```
+
+2. **Terminal 2 (Frontend):**
+   ```bash
+   cd MyHealthMate/frontend
+   npm run dev
+   ```
+
+3. **Open browser:** `http://localhost:3000`

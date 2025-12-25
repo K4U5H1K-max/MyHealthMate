@@ -52,6 +52,16 @@ async def summarize(
         if not extracted_text.strip():
             raise HTTPException(status_code=400, detail="No text could be extracted from PDF.")
         text = extracted_text
+    
+    # Validate text input
+    if not text or not text.strip():
+        raise HTTPException(status_code=400, detail="Input text cannot be empty.")
+    
     # Call GPT for summary
-    result = gpt_summarize(text)
-    return SummarizeResponse(**result)
+    try:
+        result = gpt_summarize(text)
+        return SummarizeResponse(**result)
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Summarization failed: {str(e)}")

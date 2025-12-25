@@ -7,7 +7,7 @@ from typing import Dict, Any
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
-LLAMA3_MODEL = "llama3-70b-8192"
+LLAMA3_MODEL = "llama-3.3-70b-versatile"  # Updated: llama3-70b-8192 was decommissioned
 LLAMA3_JSON_MODEL = "llama-3.3-70b-versatile"  # Updated: 3.1 was decommissioned
 
 # Safe prompt for medical paper simplification
@@ -27,6 +27,11 @@ SUMMARIZE_PROMPT = (
 def llama3_summarize(text: str) -> dict:
     if not GROQ_API_KEY:
         raise RuntimeError("GROQ_API_KEY not set in environment variables.")
+    
+    # Validate input
+    if not text or not text.strip():
+        raise ValueError("Input text cannot be empty")
+    
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
@@ -40,8 +45,20 @@ def llama3_summarize(text: str) -> dict:
         "temperature": 0.3,
         "max_tokens": 1024
     }
-    response = requests.post(GROQ_API_URL, headers=headers, json=data)
-    response.raise_for_status()
+    
+    try:
+        response = requests.post(GROQ_API_URL, headers=headers, json=data)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        error_detail = ""
+        try:
+            error_detail = response.json()
+        except:
+            error_detail = response.text
+        print(f"❌ Groq API Error: {e}")
+        print(f"   Response Status: {response.status_code}")
+        print(f"   Error Details: {error_detail}")
+        raise RuntimeError(f"Groq API error: {response.status_code} - {error_detail}")
     result = response.json()
     # Parse the output
     content = result["choices"][0]["message"]["content"]
